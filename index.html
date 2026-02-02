@@ -12,7 +12,7 @@
     <!-- Font Awesome -->
     <link href="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-100-M/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <!-- 高德地图 JS API -->
-    <script src="https://webapi.amap.com/maps?v=2.0&key=f5982da0f377324fbf07df1d0962d6a7"></script>
+    <script src="https://webapi.amap.com/maps?v=2.0&key=YOUR_AMAP_KEY&plugin=AMap.Driving,AMap.Geocoder"></script>
     
     <style>
         :root {
@@ -257,11 +257,17 @@
             border-left: 4px solid var(--primary-red);
             transform: translateX(0);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
         }
         
         .day-overview:hover {
             transform: translateX(10px);
             box-shadow: -10px 10px 0 var(--primary-red);
+        }
+        
+        .day-overview:active {
+            transform: translateX(5px);
+            box-shadow: -5px 5px 0 var(--primary-red);
         }
         
         .day-overview::before {
@@ -1038,24 +1044,6 @@
             transform: skewX(-20deg);
         }
         
-        /* 小红书链接样式 */
-        .xiaohongshu-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.3rem;
-            background: #FF2442;
-            color: var(--white);
-            padding: 0.3rem 0.6rem;
-            font-size: 0.7rem;
-            text-decoration: none;
-            border-radius: 2px;
-            transition: opacity 0.3s ease;
-        }
-        
-        .xiaohongshu-link:hover {
-            opacity: 0.8;
-        }
-        
         /* 响应式调整 */
         @media (min-width: 768px) {
             .hero-info-grid {
@@ -1094,6 +1082,109 @@
             height: 300px;
             border: 3px solid var(--black);
             margin-top: 1rem;
+        }
+        
+        /* 可选项目标记样式 */
+        .optional-tag {
+            background: #FF9800;
+            color: var(--white);
+            padding: 0.2rem 0.5rem;
+            font-size: 0.7rem;
+            border-radius: 2px;
+            margin-left: 0.5rem;
+            font-weight: 600;
+        }
+        
+        .alternative-tag {
+            background: #2196F3;
+            color: var(--white);
+            padding: 0.2rem 0.5rem;
+            font-size: 0.7rem;
+            border-radius: 2px;
+            margin-left: 0.5rem;
+            font-weight: 600;
+        }
+        
+        .schedule-item.optional {
+            border-left-color: #FF9800;
+            background: rgba(255, 152, 0, 0.05);
+        }
+        
+        .schedule-item.alternative {
+            border-left-color: #2196F3;
+            background: rgba(33, 150, 243, 0.05);
+        }
+        
+        .schedule-item.optional::before {
+            background: #FF9800;
+        }
+        
+        .schedule-item.alternative::before {
+            background: #2196F3;
+        }
+        
+        /* 行程提示框 */
+        .day-tip {
+            background: rgba(255, 152, 0, 0.1);
+            border-left: 4px solid #FF9800;
+            padding: 1rem;
+            margin: 1rem 1.5rem;
+            font-size: 0.85rem;
+        }
+        
+        .day-tip i {
+            color: #FF9800;
+            margin-right: 0.5rem;
+        }
+        
+        .day-tip-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--black);
+        }
+        
+        .day-tip-content {
+            color: var(--dark-gray);
+            line-height: 1.6;
+        }
+        
+        /* 方案选择框 */
+        .plan-options {
+            background: var(--cream);
+            padding: 1rem;
+            margin: 1rem 1.5rem;
+            border: 2px dashed var(--primary-red);
+        }
+        
+        .plan-options-title {
+            font-weight: 700;
+            color: var(--primary-red);
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .plan-option {
+            background: var(--white);
+            padding: 0.8rem;
+            margin-bottom: 0.5rem;
+            border-left: 3px solid var(--primary-red);
+        }
+        
+        .plan-option:last-child {
+            margin-bottom: 0;
+        }
+        
+        .plan-option-label {
+            font-weight: 600;
+            color: var(--black);
+            margin-bottom: 0.3rem;
+        }
+        
+        .plan-option-desc {
+            font-size: 0.85rem;
+            color: var(--dark-gray);
         }
     </style>
 </head>
@@ -1241,7 +1332,7 @@
                             <span class="meta-tag"><i class="fas fa-clock"></i> 约3.5小时</span>
                             <span class="meta-tag"><i class="fas fa-info-circle"></i> 首都T3航站楼</span>
                         </div>
-                        <a href="https://uri.amap.com/marker?position=116.603039,40.080111&name=北京首都国际机场T3航站楼&coordinate=gaode" target="_blank" class="map-link" style="margin-top: 0.5rem;">
+                        <a href="#" class="map-link" style="margin-top: 0.5rem;">
                             <i class="fas fa-map-marker-alt"></i>
                             <span>导航到首都机场T3</span>
                         </a>
@@ -1257,7 +1348,7 @@
                             <span class="meta-tag"><i class="fas fa-plane-arrival"></i> 到达</span>
                             <span class="meta-tag"><i class="fas fa-building"></i> T1航站楼</span>
                         </div>
-                        <a href="https://uri.amap.com/marker?position=113.376358,22.006444&name=珠海金湾国际机场T1&coordinate=gaode" target="_blank" class="map-link" style="margin-top: 0.5rem;">
+                        <a href="#" class="map-link" style="margin-top: 0.5rem;">
                             <i class="fas fa-map-marker-alt"></i>
                             <span>导航到珠海金湾机场</span>
                         </a>
@@ -1274,7 +1365,7 @@
                             <span class="meta-tag"><i class="fas fa-bed"></i> 1晚住宿</span>
                             <span class="meta-tag"><i class="fas fa-map-marker-alt"></i> 机场附近</span>
                         </div>
-                        <a href="https://uri.amap.com/marker?position=113.380000,22.010000&name=汉庭酒店(珠海金湾机场店)&coordinate=gaode" target="_blank" class="map-link" style="margin-top: 0.5rem;">
+                        <a href="#" class="map-link" style="margin-top: 0.5rem;">
                             <i class="fas fa-map-marker-alt"></i>
                             <span>导航到汉庭酒店</span>
                         </a>
@@ -1283,7 +1374,7 @@
             </div>
             
             <div class="day-map-container">
-                <div class="map-title"><i class="fas fa-route"></i> 今日行程地图</div>
+                <div class="map-title"><i class="fas fa-map"></i> 今日路线地图</div>
                 <div id="map-day0" class="amap-container"></div>
             </div>
         </div>
@@ -1298,6 +1389,12 @@
                     <div class="weather-temp">18°C 多云</div>
                 </div>
             </div>
+            
+            <div class="day-tip">
+                <div class="day-tip-title"><i class="fas fa-lightbulb"></i> 今日提示</div>
+                <div class="day-tip-content">除夕当天以休息调整为主，不安排必须打卡的景点。下午可以在民宿楼下沙滩遛娃，享受悠闲时光。傍晚如果状态好，可以选择去爱情邮局/珠海渔女拍照。</div>
+            </div>
+            
             <div class="schedule-timeline">
                 <div class="schedule-item">
                     <div class="schedule-time">上午</div>
@@ -1308,7 +1405,7 @@
                             <span class="meta-tag"><i class="fas fa-taxi"></i> 打车</span>
                             <span class="meta-tag"><i class="fas fa-clock"></i> 约40分钟</span>
                         </div>
-                        <a href="https://uri.amap.com/marker?position=113.380000,22.010000&name=汉庭酒店(珠海金湾机场店)&coordinate=gaode" target="_blank" class="map-link" style="margin-top: 0.5rem;">
+                        <a href="#" class="map-link" style="margin-top: 0.5rem;">
                             <i class="fas fa-map-marker-alt"></i>
                             <span>导航到汉庭酒店</span>
                         </a>
@@ -1324,7 +1421,7 @@
                             <span class="meta-tag"><i class="fas fa-bed"></i> 4晚住宿</span>
                             <span class="meta-tag"><i class="fas fa-water"></i> 情侣路海景</span>
                         </div>
-                        <a href="https://uri.amap.com/marker?position=113.576726,22.271784&name=珠海情侣路滨海大厦&coordinate=gaode" target="_blank" class="map-link" style="margin-top: 0.5rem;">
+                        <a href="#" class="map-link" style="margin-top: 0.5rem;">
                             <i class="fas fa-map-marker-alt"></i>
                             <span>导航到滨海大厦</span>
                         </a>
@@ -1345,24 +1442,34 @@
                 <div class="schedule-item">
                     <div class="schedule-time">下午</div>
                     <div class="schedule-content">
-                        <div class="schedule-title">采购年夜饭物资</div>
-                        <div class="schedule-desc">前往周边超市采购年夜饭食材</div>
+                        <div class="schedule-title">采购年夜饭物资 + 自由休息</div>
+                        <div class="schedule-desc">前往周边超市采购年夜饭食材，之后在民宿楼下沙滩遛娃或休息</div>
                         <div class="schedule-meta">
                             <span class="meta-tag"><i class="fas fa-shopping-cart"></i> 超市采购</span>
                             <span class="meta-tag"><i class="fas fa-info-circle"></i> 王鑫玥自带饺子皮</span>
+                            <span class="meta-tag"><i class="fas fa-umbrella-beach"></i> 沙滩遛娃</span>
                         </div>
                     </div>
                 </div>
                 
-                <div class="schedule-item">
+                <div class="schedule-item optional">
                     <div class="schedule-time">傍晚</div>
                     <div class="schedule-content">
-                        <div class="schedule-title">海边散步观景</div>
-                        <div class="schedule-desc">在海边民宿附近散步，欣赏海景</div>
+                        <div class="schedule-title">爱情邮局 + 珠海渔女 <span class="optional-tag">可选</span></div>
+                        <div class="schedule-desc">如果状态好，可以去情侣路打卡爱情邮局和珠海渔女雕像，拍摄日落美景</div>
                         <div class="schedule-meta">
-                            <span class="meta-tag"><i class="fas fa-walking"></i> 步行</span>
-                            <span class="meta-tag"><i class="fas fa-camera"></i> 拍照打卡</span>
+                            <span class="meta-tag"><i class="fas fa-heart"></i> 网红打卡点</span>
+                            <span class="meta-tag"><i class="fas fa-camera"></i> 日落拍照</span>
+                            <span class="meta-tag"><i class="fas fa-clock"></i> 约1小时</span>
                         </div>
+                        <a href="#" class="map-link" style="margin-top: 0.5rem;">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>导航到珠海渔女</span>
+                        </a>
+                        <a href="#" class="map-link" style="margin-left: 0.5rem;">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>导航到爱情邮局</span>
+                        </a>
                     </div>
                 </div>
                 
@@ -1381,7 +1488,7 @@
             </div>
             
             <div class="day-map-container">
-                <div class="map-title"><i class="fas fa-route"></i> 今日行程地图</div>
+                <div class="map-title"><i class="fas fa-map"></i> 今日路线地图</div>
                 <div id="map-day1" class="amap-container"></div>
             </div>
         </div>
@@ -1397,51 +1504,71 @@
                 </div>
             </div>
             
+            <div class="day-tip">
+                <div class="day-tip-title"><i class="fas fa-lightbulb"></i> 今日提示</div>
+                <div class="day-tip-content">海洋王国是全天重头戏，建议根据体力选择方案。如果 Day 1 已去过爱情邮局/珠海渔女，今天可以专心玩海洋王国后直接回民宿休息。</div>
+            </div>
+            
+            <div class="plan-options">
+                <div class="plan-options-title"><i class="fas fa-route"></i> 方案选择</div>
+                <div class="plan-option">
+                    <div class="plan-option-label">方案 A：海洋王国全天</div>
+                    <div class="plan-option-desc">白天海洋王国玩到 17 点左右，直接回民宿休息。适合体力一般或带小孩的家庭。</div>
+                </div>
+                <div class="plan-option">
+                    <div class="plan-option-label">方案 B：海洋王国 + 情侣路</div>
+                    <div class="plan-option-desc">海洋王国适度"砍项目"，只挑大项目 + 表演，下午 4 点左右先撤，再去情侣路/渔女拍照。</div>
+                </div>
+            </div>
+            
             <div class="schedule-timeline">
                 <div class="schedule-item">
-                    <div class="schedule-time">上午</div>
+                    <div class="schedule-time">09:00</div>
                     <div class="schedule-content">
                         <div class="schedule-title">长隆海洋王国</div>
-                        <div class="schedule-desc">游览珠海长隆海洋王国，观赏海洋生物表演</div>
+                        <div class="schedule-desc">游览珠海长隆海洋王国，观赏海洋生物表演。建议优先体验：鲸鲨馆、白鲸表演、海豚表演、企鹅馆</div>
                         <div class="schedule-meta">
                             <span class="meta-tag"><i class="fas fa-ticket-alt"></i> 门票提前购买</span>
-                            <span class="meta-tag"><i class="fas fa-clock"></i> 全天游玩</span>
+                            <span class="meta-tag"><i class="fas fa-clock"></i> 建议游玩6-8小时</span>
                             <span class="meta-tag"><i class="fas fa-child"></i> 亲子推荐</span>
                         </div>
-                        <a href="https://uri.amap.com/marker?position=113.534653,22.099131&name=珠海长隆海洋王国&coordinate=gaode" target="_blank" class="map-link" style="margin-top: 0.5rem;">
+                        <a href="#" class="map-link" style="margin-top: 0.5rem;">
                             <i class="fas fa-map-marker-alt"></i>
                             <span>导航到长隆海洋王国</span>
                         </a>
-                        <a href="https://www.xiaohongshu.com/explore/6579f8c5000000001203d8e8" target="_blank" class="xiaohongshu-link" style="margin-left: 0.5rem;">
-                            <i class="fab fa-redhat"></i> 小红书攻略
+                    </div>
+                </div>
+                
+                <div class="schedule-item optional">
+                    <div class="schedule-time">16:00</div>
+                    <div class="schedule-content">
+                        <div class="schedule-title">爱情邮局 + 珠海渔女 <span class="optional-tag">方案B可选</span></div>
+                        <div class="schedule-desc">如果 Day 1 未去，且今天体力充沛，可以去情侣路打卡</div>
+                        <div class="schedule-meta">
+                            <span class="meta-tag"><i class="fas fa-heart"></i> 网红打卡点</span>
+                            <span class="meta-tag"><i class="fas fa-camera"></i> 日落拍照</span>
+                        </div>
+                        <a href="#" class="map-link" style="margin-top: 0.5rem;">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>导航到珠海渔女</span>
                         </a>
                     </div>
                 </div>
                 
                 <div class="schedule-item">
-                    <div class="schedule-time">傍晚</div>
+                    <div class="schedule-time">晚上</div>
                     <div class="schedule-content">
-                        <div class="schedule-title">爱情邮局 + 灯塔拍照</div>
-                        <div class="schedule-desc">情侣路漫步，打卡珠海渔女、爱情邮局</div>
+                        <div class="schedule-title">返回民宿休息</div>
+                        <div class="schedule-desc">回民宿休息，为明天澳门行程养精蓄锐</div>
                         <div class="schedule-meta">
-                            <span class="meta-tag"><i class="fas fa-heart"></i> 网红打卡点</span>
-                            <span class="meta-tag"><i class="fas fa-camera"></i> 白色建筑+大海</span>
-                            <span class="meta-tag"><i class="fas fa-star"></i> 出片率高</span>
+                            <span class="meta-tag"><i class="fas fa-bed"></i> 早点休息</span>
                         </div>
-                        <a href="https://uri.amap.com/marker?position=113.574219,22.264648&name=珠海渔女&coordinate=gaode" target="_blank" class="map-link" style="margin-top: 0.5rem;">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>导航到珠海渔女</span>
-                        </a>
-                        <a href="https://uri.amap.com/marker?position=113.577881,22.268066&name=爱情邮局&coordinate=gaode" target="_blank" class="map-link" style="margin-left: 0.5rem;">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>导航到爱情邮局</span>
-                        </a>
                     </div>
                 </div>
             </div>
             
             <div class="day-map-container">
-                <div class="map-title"><i class="fas fa-route"></i> 今日行程地图</div>
+                <div class="map-title"><i class="fas fa-map"></i> 今日路线地图</div>
                 <div id="map-day2" class="amap-container"></div>
             </div>
         </div>
@@ -1457,17 +1584,22 @@
                 </div>
             </div>
             
+            <div class="day-tip">
+                <div class="day-tip-title"><i class="fas fa-lightbulb"></i> 今日提示</div>
+                <div class="day-tip-content">澳门行程心态定为"主打感受体验，不追打卡数量"。带小孩出行，觉得累就早点坐发财车回酒店休息，不必强撑。大三巴、官也街等可根据状态选择性游览。</div>
+            </div>
+            
             <div class="schedule-timeline">
                 <div class="schedule-item">
-                    <div class="schedule-time">07:30</div>
+                    <div class="schedule-time">08:00</div>
                     <div class="schedule-content">
                         <div class="schedule-title">拱北/横琴口岸过关</div>
-                        <div class="schedule-desc">带好港澳通行证，人脸识别过关</div>
+                        <div class="schedule-desc">带好港澳通行证，人脸识别过关。建议早点出发避开人流高峰</div>
                         <div class="schedule-meta">
                             <span class="meta-tag"><i class="fas fa-passport"></i> 港澳通行证必带</span>
                             <span class="meta-tag"><i class="fas fa-user-check"></i> 人脸识别</span>
                         </div>
-                        <a href="https://uri.amap.com/marker?position=113.553955,22.221191&name=拱北口岸&coordinate=gaode" target="_blank" class="map-link" style="margin-top: 0.5rem;">
+                        <a href="#" class="map-link" style="margin-top: 0.5rem;">
                             <i class="fas fa-map-marker-alt"></i>
                             <span>导航到拱北口岸</span>
                         </a>
@@ -1475,25 +1607,65 @@
                 </div>
                 
                 <div class="schedule-item">
-                    <div class="schedule-time">全天</div>
+                    <div class="schedule-time">上午</div>
                     <div class="schedule-content">
-                        <div class="schedule-title">澳门半岛-氹仔游玩</div>
-                        <div class="schedule-desc">乘坐美高梅/银河酒店发财车，游览威尼斯人娱乐城</div>
+                        <div class="schedule-title">威尼斯人度假村</div>
+                        <div class="schedule-desc">乘坐发财车前往威尼斯人，体验室内运河、购物中心</div>
                         <div class="schedule-meta">
                             <span class="meta-tag"><i class="fas fa-bus"></i> 发财车免费</span>
-                            <span class="meta-tag"><i class="fas fa-clock"></i> 威尼斯人1-1.5小时</span>
+                            <span class="meta-tag"><i class="fas fa-clock"></i> 约1.5-2小时</span>
                             <span class="meta-tag"><i class="fas fa-shopping-bag"></i> 购物娱乐</span>
                         </div>
-                        <a href="https://www.xiaohongshu.com/explore/65a8f9d1000000001d03a8e2" target="_blank" class="xiaohongshu-link" style="margin-top: 0.5rem;">
-                            <i class="fab fa-redhat"></i> 澳门一日游攻略
-                        </a>
                     </div>
                 </div>
-            </div>
-            
-            <div class="day-map-container">
-                <div class="map-title"><i class="fas fa-route"></i> 今日行程地图</div>
-                <div id="map-day3" class="amap-container"></div>
+                
+                <div class="schedule-item optional">
+                    <div class="schedule-time">中午</div>
+                    <div class="schedule-content">
+                        <div class="schedule-title">官也街美食 <span class="optional-tag">可选</span></div>
+                        <div class="schedule-desc">品尝澳门特色小吃：猪扒包、葡挞、杏仁饼等</div>
+                        <div class="schedule-meta">
+                            <span class="meta-tag"><i class="fas fa-utensils"></i> 澳门美食</span>
+                            <span class="meta-tag"><i class="fas fa-cookie"></i> 猪扒包/葡挞</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="schedule-item optional">
+                    <div class="schedule-time">下午</div>
+                    <div class="schedule-content">
+                        <div class="schedule-title">大三巴牌坊 <span class="optional-tag">可选</span></div>
+                        <div class="schedule-desc">澳门标志性景点，如果体力允许可以前往打卡</div>
+                        <div class="schedule-meta">
+                            <span class="meta-tag"><i class="fas fa-landmark"></i> 地标景点</span>
+                            <span class="meta-tag"><i class="fas fa-camera"></i> 拍照打卡</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="schedule-item">
+                    <div class="schedule-time">傍晚</div>
+                    <div class="schedule-content">
+                        <div class="schedule-title">银河酒店/新濠天地</div>
+                        <div class="schedule-desc">参观豪华酒店，欣赏钻石表演或天幕表演</div>
+                        <div class="schedule-meta">
+                            <span class="meta-tag"><i class="fas fa-gem"></i> 钻石表演</span>
+                            <span class="meta-tag"><i class="fas fa-building"></i> 豪华酒店</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="schedule-item">
+                    <div class="schedule-time">晚上</div>
+                    <div class="schedule-content">
+                        <div class="schedule-title">返回珠海</div>
+                        <div class="schedule-desc">乘坐发财车返回口岸，过关回珠海民宿休息</div>
+                        <div class="schedule-meta">
+                            <span class="meta-tag"><i class="fas fa-bus"></i> 发财车</span>
+                            <span class="meta-tag"><i class="fas fa-bed"></i> 早点休息</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         
@@ -1508,17 +1680,35 @@
                 </div>
             </div>
             
+            <div class="day-tip">
+                <div class="day-tip-title"><i class="fas fa-lightbulb"></i> 今日提示</div>
+                <div class="day-tip-content">这是全行程节奏最紧的一天，大桥穿梭巴士、地铁移动很多次，带小孩容易疲惫。强烈建议二选一方案，不要贪多。另外建议办一张八达通/手机交通卡，地铁/巴士移动会轻松不少。</div>
+            </div>
+            
+            <div class="plan-options">
+                <div class="plan-options-title"><i class="fas fa-route"></i> 方案选择（强烈建议二选一）</div>
+                <div class="plan-option">
+                    <div class="plan-option-label">方案 A：砍掉购物，专注体验</div>
+                    <div class="plan-option-desc">把时间更多给维港 & 星光大道，晚一点吃完饭就返回珠海。不一定非要上游轮，在星光大道/尖沙咀海滨看夜景也很好。</div>
+                </div>
+                <div class="plan-option">
+                    <div class="plan-option-label">方案 B：保留购物，砍掉游轮</div>
+                    <div class="plan-option-desc">购物 + 简单看维港夜景即可，不上船，避免最后一班船/车叠在一起导致奔跑赶路。</div>
+                </div>
+            </div>
+            
             <div class="schedule-timeline">
                 <div class="schedule-item">
                     <div class="schedule-time">07:30</div>
                     <div class="schedule-content">
                         <div class="schedule-title">港珠澳大桥巴士出发</div>
-                        <div class="schedule-desc">乘坐港珠澳大桥穿梭巴士前往香港</div>
+                        <div class="schedule-desc">乘坐港珠澳大桥穿梭巴士前往香港。建议提前办好八达通或开通手机交通卡</div>
                         <div class="schedule-meta">
                             <span class="meta-tag"><i class="fas fa-bus"></i> 穿梭巴士</span>
                             <span class="meta-tag"><i class="fas fa-bridge"></i> 港珠澳大桥</span>
+                            <span class="meta-tag"><i class="fas fa-credit-card"></i> 八达通必备</span>
                         </div>
-                        <a href="https://uri.amap.com/marker?position=113.559082,22.215332&name=港珠澳大桥珠海口岸&coordinate=gaode" target="_blank" class="map-link" style="margin-top: 0.5rem;">
+                        <a href="#" class="map-link" style="margin-top: 0.5rem;">
                             <i class="fas fa-map-marker-alt"></i>
                             <span>导航到珠海口岸</span>
                         </a>
@@ -1542,7 +1732,7 @@
                     <div class="schedule-time">下午</div>
                     <div class="schedule-content">
                         <div class="schedule-title">尖沙咀星光大道 + 维港</div>
-                        <div class="schedule-desc">漫步星光大道，欣赏维多利亚港美景</div>
+                        <div class="schedule-desc">漫步星光大道，欣赏维多利亚港美景。这里看夜景也很棒，不一定要上游轮</div>
                         <div class="schedule-meta">
                             <span class="meta-tag"><i class="fas fa-subway"></i> 地铁尖沙咀站</span>
                             <span class="meta-tag"><i class="fas fa-star"></i> 星光大道</span>
@@ -1551,11 +1741,11 @@
                     </div>
                 </div>
                 
-                <div class="schedule-item">
+                <div class="schedule-item optional">
                     <div class="schedule-time">傍晚</div>
                     <div class="schedule-content">
-                        <div class="schedule-title">旺角/铜锣湾购物</div>
-                        <div class="schedule-desc">香港购物天堂，记得保留发票方便退税</div>
+                        <div class="schedule-title">旺角/铜锣湾购物 <span class="optional-tag">方案B可选</span></div>
+                        <div class="schedule-desc">香港购物天堂，记得保留发票方便退税。选择方案B时保留此项</div>
                         <div class="schedule-meta">
                             <span class="meta-tag"><i class="fas fa-shopping-bag"></i> 购物</span>
                             <span class="meta-tag"><i class="fas fa-receipt"></i> 保留发票退税</span>
@@ -1563,37 +1753,31 @@
                     </div>
                 </div>
                 
-                <div class="schedule-item">
+                <div class="schedule-item optional">
                     <div class="schedule-time">夜间</div>
                     <div class="schedule-content">
-                        <div class="schedule-title">游轮夜游维港</div>
-                        <div class="schedule-desc">乘坐游轮欣赏维港璀璨夜景</div>
+                        <div class="schedule-title">游轮夜游维港 <span class="optional-tag">方案A可选</span></div>
+                        <div class="schedule-desc">乘坐游轮欣赏维港璀璨夜景。选择方案A时可保留此项，但也可以在岸边看夜景</div>
                         <div class="schedule-meta">
                             <span class="meta-tag"><i class="fas fa-ship"></i> 游轮</span>
                             <span class="meta-tag"><i class="fas fa-city"></i> 夜景璀璨</span>
                         </div>
-                        <a href="https://www.xiaohongshu.com/explore/65b2c8d1000000001203e9f1" target="_blank" class="xiaohongshu-link" style="margin-top: 0.5rem;">
-                            <i class="fab fa-redhat"></i> 香港一日游攻略
-                        </a>
                     </div>
                 </div>
                 
                 <div class="schedule-item">
-                    <div class="schedule-time">23:00前</div>
+                    <div class="schedule-time">21:00前</div>
                     <div class="schedule-content">
                         <div class="schedule-title">返回珠海</div>
-                        <div class="schedule-desc">乘坐港珠澳大桥穿梭巴士返回珠海</div>
+                        <div class="schedule-desc">建议 21:00 前开始返程，预留充足时间。末班车 23:00，不要卡太紧</div>
                         <div class="schedule-meta">
-                            <span class="meta-tag"><i class="fas fa-exclamation-triangle"></i> 23:00前需上车</span>
+                            <span class="meta-tag"><i class="fas fa-exclamation-triangle"></i> 建议21:00前出发</span>
+                            <span class="meta-tag"><i class="fas fa-bus"></i> 末班车23:00</span>
                         </div>
                     </div>
                 </div>
             </div>
             
-            <div class="day-map-container">
-                <div class="map-title"><i class="fas fa-route"></i> 今日行程地图</div>
-                <div id="map-day4" class="amap-container"></div>
-            </div>
         </div>
         
         <!-- Day 5 -->
@@ -1607,19 +1791,64 @@
                 </div>
             </div>
             
+            <div class="day-tip">
+                <div class="day-tip-title"><i class="fas fa-lightbulb"></i> 今日提示</div>
+                <div class="day-tip-content">连续两天出境后，这天节奏也偏紧（退房+高铁+入住+早茶+陈家祠+北京路+��游）。建议视为"广州初体验 + 夜游为主"，适度减法。若当天状态不好，可以放弃北京路购物。</div>
+            </div>
+            
+            <div class="plan-options">
+                <div class="plan-options-title"><i class="fas fa-route"></i> 方案选择</div>
+                <div class="plan-option">
+                    <div class="plan-option-label">方案 A：早茶 + 陈家祠 + 夜游（推荐）</div>
+                    <div class="plan-option-desc">放弃北京路购物，只保留核心体验。��午陈家祠后直接回公寓休息，晚上再出来夜游。</div>
+                </div>
+                <div class="plan-option">
+                    <div class="plan-option-label">方案 B：早茶 + 北京路 + 夜游</div>
+                    <div class="plan-option-desc">把陈家祠挪到 D7 上午（替换广州塔），今天专注「早茶 + 北京路购物 + 夜游」。</div>
+                </div>
+            </div>
+            
             <div class="schedule-timeline">
                 <div class="schedule-item">
-                    <div class="schedule-time">11:00前</div>
+                    <div class="schedule-time">09:00</div>
                     <div class="schedule-content">
-                        <div class="schedule-title">滨海大厦退房 - 高铁前往广州</div>
-                        <div class="schedule-desc">珠海情侣路滨海大厦退房，乘高铁前往广州</div>
+                        <div class="schedule-title">滨海大厦退房</div>
+                        <div class="schedule-desc">珠海情侣路滨海大厦退房，收拾行李准备出发</div>
+                        <div class="schedule-meta">
+                            <span class="meta-tag"><i class="fas fa-suitcase"></i> 退房</span>
+                            <span class="meta-tag"><i class="fas fa-clock"></i> 11:00前</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="schedule-item">
+                    <div class="schedule-time">10:00</div>
+                    <div class="schedule-content">
+                        <div class="schedule-title">高铁前往广州</div>
+                        <div class="schedule-desc">从珠海站乘高铁前往广州南站</div>
                         <div class="schedule-meta">
                             <span class="meta-tag"><i class="fas fa-train"></i> 高铁</span>
                             <span class="meta-tag"><i class="fas fa-clock"></i> 约1小时</span>
                         </div>
-                        <a href="https://uri.amap.com/marker?position=113.576726,22.271784&name=珠海站&coordinate=gaode" target="_blank" class="map-link" style="margin-top: 0.5rem;">
+                        <a href="#" class="map-link" style="margin-top: 0.5rem;">
                             <i class="fas fa-map-marker-alt"></i>
                             <span>导航到珠海站</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="schedule-item">
+                    <div class="schedule-time">12:00</div>
+                    <div class="schedule-content">
+                        <div class="schedule-title">广式早茶（午茶）</div>
+                        <div class="schedule-desc">抵达广州后先吃早茶（其实是午茶），推荐陶陶居/点都德</div>
+                        <div class="schedule-meta">
+                            <span class="meta-tag"><i class="fas fa-utensils"></i> 陶陶居/点都德</span>
+                            <span class="meta-tag"><i class="fas fa-star"></i> 必吃推荐</span>
+                        </div>
+                        <a href="#" class="map-link" style="margin-top: 0.5rem;">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>导航到陶陶居</span>
                         </a>
                     </div>
                 </div>
@@ -1628,12 +1857,12 @@
                     <div class="schedule-time">14:00</div>
                     <div class="schedule-content">
                         <div class="schedule-title">北京路天字码头·光栖公寓入住</div>
-                        <div class="schedule-desc">抵达广州，办理光栖-Guangqi公寓入住</div>
+                        <div class="schedule-desc">办理光栖-Guangqi公寓入住，放下行李稍作休息</div>
                         <div class="schedule-meta">
                             <span class="meta-tag"><i class="fas fa-bed"></i> 2晚住宿</span>
                             <span class="meta-tag"><i class="fas fa-subway"></i> 北京路步行街附近</span>
                         </div>
-                        <a href="https://uri.amap.com/marker?position=113.271484,23.117188&name=北京路天字码头·光栖-Guangqi公寓&coordinate=gaode" target="_blank" class="map-link" style="margin-top: 0.5rem;">
+                        <a href="#" class="map-link" style="margin-top: 0.5rem;">
                             <i class="fas fa-map-marker-alt"></i>
                             <span>导航到光栖公寓</span>
                         </a>
@@ -1641,52 +1870,33 @@
                 </div>
                 
                 <div class="schedule-item">
-                    <div class="schedule-time">12:00-13:30</div>
+                    <div class="schedule-time">15:00</div>
                     <div class="schedule-content">
-                        <div class="schedule-title">广式早茶</div>
-                        <div class="schedule-desc">品尝正宗广式早茶，推荐陶陶居/点都德</div>
-                        <div class="schedule-meta">
-                            <span class="meta-tag"><i class="fas fa-utensils"></i> 陶陶居/点都德</span>
-                            <span class="meta-tag"><i class="fas fa-star"></i> 必吃推荐</span>
-                        </div>
-                        <a href="https://uri.amap.com/marker?position=113.259697,23.125178&name=陶陶居(上下九店)&coordinate=gaode" target="_blank" class="map-link" style="margin-top: 0.5rem;">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>导航到陶陶居</span>
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="schedule-item">
-                    <div class="schedule-time">13:30-17:00</div>
-                    <div class="schedule-content">
-                        <div class="schedule-title">参观陈家祠</div>
-                        <div class="schedule-desc">欣赏岭南古建筑精华，感受传统文化</div>
+                        <div class="schedule-title">参观陈家祠 <span class="optional-tag">方案A</span></div>
+                        <div class="schedule-desc">欣赏岭南古建筑精华，感受传统文化。方案B可挪到D7上午</div>
                         <div class="schedule-meta">
                             <span class="meta-tag"><i class="fas fa-subway"></i> 地铁1号线</span>
                             <span class="meta-tag"><i class="fas fa-ticket-alt"></i> 门票提前网购</span>
                             <span class="meta-tag"><i class="fas fa-landmark"></i> 岭南建筑</span>
                         </div>
-                        <a href="https://uri.amap.com/marker?position=113.245117,23.127441&name=陈家祠&coordinate=gaode" target="_blank" class="map-link" style="margin-top: 0.5rem;">
+                        <a href="#" class="map-link" style="margin-top: 0.5rem;">
                             <i class="fas fa-map-marker-alt"></i>
                             <span>导航到陈家祠</span>
-                        </a>
-                        <a href="https://www.xiaohongshu.com/explore/65c3d8e1000000001d03b9f2" target="_blank" class="xiaohongshu-link" style="margin-left: 0.5rem;">
-                            <i class="fab fa-redhat"></i> 陈家祠攻略
                         </a>
                     </div>
                 </div>
                 
-                <div class="schedule-item">
-                    <div class="schedule-time">17:00-19:00</div>
+                <div class="schedule-item optional">
+                    <div class="schedule-time">17:00</div>
                     <div class="schedule-content">
-                        <div class="schedule-title">逛北京路步行街</div>
-                        <div class="schedule-desc">广州最繁华商业街，可购买广州手信（鸡仔饼）</div>
+                        <div class="schedule-title">逛北京路步行街 <span class="optional-tag">可选/方案B</span></div>
+                        <div class="schedule-desc">广州最繁华商业街，可购买广州手信（鸡仔饼）。状态不好可跳过</div>
                         <div class="schedule-meta">
                             <span class="meta-tag"><i class="fas fa-subway"></i> 地铁1号线</span>
                             <span class="meta-tag"><i class="fas fa-shopping-bag"></i> 购物</span>
                             <span class="meta-tag"><i class="fas fa-cookie"></i> 鸡仔饼</span>
                         </div>
-                        <a href="https://uri.amap.com/marker?position=113.264648,23.128906&name=北京路步行街&coordinate=gaode" target="_blank" class="map-link" style="margin-top: 0.5rem;">
+                        <a href="#" class="map-link" style="margin-top: 0.5rem;">
                             <i class="fas fa-map-marker-alt"></i>
                             <span>导航到北京路</span>
                         </a>
@@ -1694,16 +1904,16 @@
                 </div>
                 
                 <div class="schedule-item">
-                    <div class="schedule-time">19:00-21:00</div>
+                    <div class="schedule-time">19:00</div>
                     <div class="schedule-content">
                         <div class="schedule-title">珠江夜游</div>
-                        <div class="schedule-desc">从天字码头出发，欣赏珠江两岸夜景</div>
+                        <div class="schedule-desc">从天字码头出发，欣赏珠江两岸夜景。这是今天的重头戏</div>
                         <div class="schedule-meta">
                             <span class="meta-tag"><i class="fas fa-ship"></i> 游船</span>
                             <span class="meta-tag"><i class="fas fa-ticket-alt"></i> 船票提前1天订</span>
                             <span class="meta-tag"><i class="fas fa-city"></i> 夜景</span>
                         </div>
-                        <a href="https://uri.amap.com/marker?position=113.271484,23.117188&name=天字码头&coordinate=gaode" target="_blank" class="map-link" style="margin-top: 0.5rem;">
+                        <a href="#" class="map-link" style="margin-top: 0.5rem;">
                             <i class="fas fa-map-marker-alt"></i>
                             <span>导航到天字码头</span>
                         </a>
@@ -1711,10 +1921,6 @@
                 </div>
             </div>
             
-            <div class="day-map-container">
-                <div class="map-title"><i class="fas fa-route"></i> 今日行程地图</div>
-                <div id="map-day5" class="amap-container"></div>
-            </div>
         </div>
         
         <!-- Day 6 -->
@@ -1739,12 +1945,9 @@
                             <span class="meta-tag"><i class="fas fa-paw"></i> 野生动物</span>
                             <span class="meta-tag"><i class="fas fa-child"></i> 亲子推荐</span>
                         </div>
-                        <a href="https://uri.amap.com/marker?position=113.329102,22.998047&name=长隆野生动物世界&coordinate=gaode" target="_blank" class="map-link" style="margin-top: 0.5rem;">
+                        <a href="#" class="map-link" style="margin-top: 0.5rem;">
                             <i class="fas fa-map-marker-alt"></i>
                             <span>导航到长隆动物园</span>
-                        </a>
-                        <a href="https://www.xiaohongshu.com/explore/65d4e9f1000000001203f0e3" target="_blank" class="xiaohongshu-link" style="margin-left: 0.5rem;">
-                            <i class="fab fa-redhat"></i> 长隆攻略
                         </a>
                     </div>
                 </div>
@@ -1759,7 +1962,7 @@
                             <span class="meta-tag"><i class="fas fa-theater-masks"></i> 马戏表演</span>
                             <span class="meta-tag"><i class="fas fa-star"></i> 必看推荐</span>
                         </div>
-                        <a href="https://uri.amap.com/marker?position=113.329590,22.995117&name=长隆国际大马戏&coordinate=gaode" target="_blank" class="map-link" style="margin-top: 0.5rem;">
+                        <a href="#" class="map-link" style="margin-top: 0.5rem;">
                             <i class="fas fa-map-marker-alt"></i>
                             <span>导航到长隆大马戏</span>
                         </a>
@@ -1767,10 +1970,6 @@
                 </div>
             </div>
             
-            <div class="day-map-container">
-                <div class="map-title"><i class="fas fa-route"></i> 今日行程地图</div>
-                <div id="map-day6" class="amap-container"></div>
-            </div>
         </div>
         
         <!-- Day 7 -->
@@ -1795,12 +1994,9 @@
                             <span class="meta-tag"><i class="fas fa-ticket-alt"></i> 门票提前3天网购</span>
                             <span class="meta-tag"><i class="fas fa-binoculars"></i> 450米观景台</span>
                         </div>
-                        <a href="https://uri.amap.com/marker?position=113.324219,23.106445&name=广州塔&coordinate=gaode" target="_blank" class="map-link" style="margin-top: 0.5rem;">
+                        <a href="#" class="map-link" style="margin-top: 0.5rem;">
                             <i class="fas fa-map-marker-alt"></i>
                             <span>导航到广州塔</span>
-                        </a>
-                        <a href="https://www.xiaohongshu.com/explore/65e5f0e1000000001d03c0f4" target="_blank" class="xiaohongshu-link" style="margin-left: 0.5rem;">
-                            <i class="fab fa-redhat"></i> 广州塔攻略
                         </a>
                     </div>
                 </div>
@@ -1815,7 +2011,7 @@
                             <span class="meta-tag"><i class="fas fa-clock"></i> 提前取号</span>
                             <span class="meta-tag"><i class="fas fa-star"></i> 米其林推荐</span>
                         </div>
-                        <a href="https://uri.amap.com/marker?position=113.321289,23.108398&name=炳胜品味(广州塔店)&coordinate=gaode" target="_blank" class="map-link" style="margin-top: 0.5rem;">
+                        <a href="#" class="map-link" style="margin-top: 0.5rem;">
                             <i class="fas fa-map-marker-alt"></i>
                             <span>导航到炳胜品味</span>
                         </a>
@@ -1832,12 +2028,9 @@
                             <span class="meta-tag"><i class="fas fa-church"></i> 欧式建筑</span>
                             <span class="meta-tag"><i class="fas fa-camera"></i> 拍照圣地</span>
                         </div>
-                        <a href="https://uri.amap.com/marker?position=113.235352,23.108398&name=沙面岛&coordinate=gaode" target="_blank" class="map-link" style="margin-top: 0.5rem;">
+                        <a href="#" class="map-link" style="margin-top: 0.5rem;">
                             <i class="fas fa-map-marker-alt"></i>
                             <span>导航到沙面岛</span>
-                        </a>
-                        <a href="https://www.xiaohongshu.com/explore/65f6e1f1000000001203g1f5" target="_blank" class="xiaohongshu-link" style="margin-left: 0.5rem;">
-                            <i class="fab fa-redhat"></i> 沙面岛攻略
                         </a>
                     </div>
                 </div>
@@ -1851,7 +2044,7 @@
                             <span class="meta-tag"><i class="fas fa-train"></i> 动卧</span>
                             <span class="meta-tag"><i class="fas fa-home"></i> 返程</span>
                         </div>
-                        <a href="https://uri.amap.com/marker?position=113.256836,23.148438&name=广州站&coordinate=gaode" target="_blank" class="map-link" style="margin-top: 0.5rem;">
+                        <a href="#" class="map-link" style="margin-top: 0.5rem;">
                             <i class="fas fa-map-marker-alt"></i>
                             <span>导航到广州站</span>
                         </a>
@@ -1859,10 +2052,6 @@
                 </div>
             </div>
             
-            <div class="day-map-container">
-                <div class="map-title"><i class="fas fa-route"></i> 今日行程地图</div>
-                <div id="map-day7" class="amap-container"></div>
-            </div>
         </div>
     </section>
     
@@ -2033,7 +2222,7 @@
                 <p><i class="fas fa-clock"></i> 入住时间：14:00 | 退房时间：11:00</p>
                 <p><i class="fas fa-water"></i> 情侣路海边位置，风景优美</p>
             </div>
-            <a href="https://uri.amap.com/marker?position=113.576726,22.271784&name=珠海情侣路滨海大厦&coordinate=gaode" target="_blank" class="map-link" style="margin-top: 0.5rem;">
+            <a href="#" class="map-link" style="margin-top: 0.5rem;">
                 <i class="fas fa-map-marker-alt"></i>
                 <span>导航到滨海大厦</span>
             </a>
@@ -2052,7 +2241,7 @@
                 <p><i class="fas fa-clock"></i> 入住时间：14:00 | 退房时间：12:00</p>
                 <p><i class="fas fa-subway"></i> 北京路步行街附近，交通便利</p>
             </div>
-            <a href="https://uri.amap.com/marker?position=113.271484,23.117188&name=北京路天字码头·光栖-Guangqi公寓&coordinate=gaode" target="_blank" class="map-link" style="margin-top: 0.5rem;">
+            <a href="#" class="map-link" style="margin-top: 0.5rem;">
                 <i class="fas fa-map-marker-alt"></i>
                 <span>导航到光栖公寓</span>
             </a>
@@ -2363,7 +2552,6 @@
             <i class="fas fa-palette"></i> 构成主义风格设计 | 致敬罗德琴科与利西茨基
         </p>
     </footer>
-    
     <script>
         // 滚动动画
         const observerOptions = {
@@ -2383,227 +2571,187 @@
             observer.observe(el);
         });
         
-        // 高德地图初始化
-        function initMaps() {
-            // Day 0 地图 - 北京到珠海（飞机）
-            const map0 = new AMap.Map('map-day0', {
-                zoom: 5,
-                center: [113.376358, 30.0]
-            });
+        // 高德地图相关功能
+        // 景点坐标数据
+        const locations = {
+            // Day 0
+            '首都机场T3': { lng: 116.5925, lat: 40.0799, address: '北京市顺义区首都国际机场T3航站楼' },
+            '珠海金湾机场': { lng: 113.3762, lat: 22.0064, address: '珠海市金湾区珠海金湾国际机场' },
+            '汉庭酒店': { lng: 113.3800, lat: 22.0100, address: '珠海市金湾区机场附近汉庭酒店' },
             
-            const marker0_1 = new AMap.Marker({
-                position: [116.603039, 40.080111],
-                title: '北京首都国际机场T3',
-                label: {
-                    content: '<div style="background:#D32F2F;color:#fff;padding:2px 6px;font-size:12px;">1. 首都机场T3</div>',
-                    direction: 'top'
-                }
-            });
-            const marker0_2 = new AMap.Marker({
-                position: [113.376358, 22.006444],
-                title: '珠海金湾国际机场T1',
-                label: {
-                    content: '<div style="background:#D32F2F;color:#fff;padding:2px 6px;font-size:12px;">2. 珠海金湾机场T1</div>',
-                    direction: 'top'
-                }
-            });
-            const marker0_3 = new AMap.Marker({
-                position: [113.380000, 22.010000],
-                title: '汉庭酒店(珠海金湾机场店)',
-                label: {
-                    content: '<div style="background:#D32F2F;color:#fff;padding:2px 6px;font-size:12px;">3. 汉庭酒店</div>',
-                    direction: 'top'
-                }
-            });
-            map0.add([marker0_1, marker0_2, marker0_3]);
+            // Day 1
+            '滨海大厦': { lng: 113.5769, lat: 22.2711, address: '珠海市香洲区情侣路滨海大厦' },
+            '珠海渔女': { lng: 113.5785, lat: 22.2756, address: '珠海市香洲区情侣路珠海渔女雕像' },
+            '爱情邮局': { lng: 113.5780, lat: 22.2740, address: '珠海市香洲区情侣路爱情邮局' },
             
-            const polyline0 = new AMap.Polyline({
-                path: [[116.603039, 40.080111], [113.376358, 22.006444], [113.380000, 22.010000]],
-                strokeColor: '#D32F2F',
-                strokeWeight: 3,
-                strokeStyle: 'dashed'
-            });
-            map0.add(polyline0);
-            map0.setFitView();
+            // Day 2
+            '长隆海洋王国': { lng: 113.5350, lat: 22.1050, address: '珠海市横琴新区长隆海洋王国' },
             
-            // Day 1 地图 - 珠海
-            const map1 = new AMap.Map('map-day1', {
-                zoom: 13,
-                center: [113.576726, 22.271784]
-            });
+            // Day 3
+            '拱北口岸': { lng: 113.5530, lat: 22.2210, address: '珠海市香洲区拱北口岸' },
             
-            const marker1 = new AMap.Marker({
-                position: [113.576726, 22.271784],
-                title: '珠海站'
-            });
-            map1.add(marker1);
+            // Day 4
+            '珠海口岸': { lng: 113.5530, lat: 22.2210, address: '珠海市香洲区港珠澳大桥珠海口岸' },
             
-            // Day 2 地图 - 长隆海洋王国 + 珠海渔女
-            const map2 = new AMap.Map('map-day2', {
+            // Day 5
+            '珠海站': { lng: 113.5530, lat: 22.2210, address: '珠海市香洲区珠海站' },
+            '陶陶居': { lng: 113.2644, lat: 23.1291, address: '广州市越秀区陶陶居' },
+            '光栖公寓': { lng: 113.2680, lat: 23.1180, address: '广州市越秀区北京路天字码头光栖公寓' },
+            '陈家祠': { lng: 113.2450, lat: 23.1280, address: '广州市荔湾区陈家祠' },
+            '北京路': { lng: 113.2680, lat: 23.1200, address: '广州市越秀区北京路步行街' },
+            '天字码头': { lng: 113.2700, lat: 23.1150, address: '广州市越秀区天字码头' },
+            
+            // Day 6
+            '长隆动物园': { lng: 113.3290, lat: 22.9980, address: '广州市番禺区长隆野生动物世界' },
+            '长隆大马戏': { lng: 113.3300, lat: 22.9970, address: '广州市番禺区长隆国际大马戏' },
+            
+            // Day 7
+            '广州塔': { lng: 113.3244, lat: 23.1066, address: '广州市海珠区广州塔' },
+            '炳胜品味': { lng: 113.3250, lat: 23.1070, address: '广州市海珠区炳胜品味（广州塔店）' },
+            '沙面岛': { lng: 113.2350, lat: 23.1100, address: '广州市荔湾区沙面岛' },
+            '广州站': { lng: 113.2564, lat: 23.1480, address: '广州市越秀区广州站' }
+        };
+        
+        // 每日行程地图数据
+        const dayMaps = {
+            day0: {
+                center: [113.3762, 22.0064],
                 zoom: 12,
-                center: [113.55, 22.18]
-            });
-            
-            const markers2 = [
-                { position: [113.534653, 22.099131], title: '长隆海洋王国' },
-                { position: [113.574219, 22.264648], title: '珠海渔女' },
-                { position: [113.577881, 22.268066], title: '爱情邮局' }
-            ];
-            
-            markers2.forEach((m, i) => {
-                const marker = new AMap.Marker({
-                    position: m.position,
-                    title: m.title,
-                    label: {
-                        content: `<div style="background:#D32F2F;color:#fff;padding:2px 6px;font-size:12px;">${i+1}. ${m.title}</div>`,
-                        direction: 'top'
-                    }
-                });
-                map2.add(marker);
-            });
-            
-            const polyline2 = new AMap.Polyline({
-                path: markers2.map(m => m.position),
-                strokeColor: '#D32F2F',
-                strokeWeight: 3
-            });
-            map2.add(polyline2);
-            map2.setFitView();
-            
-            // Day 3 地图 - 澳门
-            const map3 = new AMap.Map('map-day3', {
-                zoom: 13,
-                center: [113.553955, 22.221191]
-            });
-            
-            const marker3 = new AMap.Marker({
-                position: [113.553955, 22.221191],
-                title: '拱北口岸',
-                label: {
-                    content: '<div style="background:#D32F2F;color:#fff;padding:2px 6px;font-size:12px;">拱北口岸</div>',
-                    direction: 'top'
-                }
-            });
-            map3.add(marker3);
-            
-            // Day 4 地图 - 香港
-            const map4 = new AMap.Map('map-day4', {
-                zoom: 12,
-                center: [113.559082, 22.215332]
-            });
-            
-            const marker4 = new AMap.Marker({
-                position: [113.559082, 22.215332],
-                title: '港珠澳大桥珠海口岸',
-                label: {
-                    content: '<div style="background:#D32F2F;color:#fff;padding:2px 6px;font-size:12px;">珠海口岸</div>',
-                    direction: 'top'
-                }
-            });
-            map4.add(marker4);
-            
-            // Day 5 地图 - 广州
-            const map5 = new AMap.Map('map-day5', {
-                zoom: 13,
-                center: [113.26, 23.125]
-            });
-            
-            const markers5 = [
-                { position: [113.259697, 23.125178], title: '陶陶居' },
-                { position: [113.245117, 23.127441], title: '陈家祠' },
-                { position: [113.264648, 23.128906], title: '北京路步行街' },
-                { position: [113.271484, 23.117188], title: '天字码头' }
-            ];
-            
-            markers5.forEach((m, i) => {
-                const marker = new AMap.Marker({
-                    position: m.position,
-                    title: m.title,
-                    label: {
-                        content: `<div style="background:#D32F2F;color:#fff;padding:2px 6px;font-size:12px;">${i+1}. ${m.title}</div>`,
-                        direction: 'top'
-                    }
-                });
-                map5.add(marker);
-            });
-            
-            const polyline5 = new AMap.Polyline({
-                path: markers5.map(m => m.position),
-                strokeColor: '#D32F2F',
-                strokeWeight: 3
-            });
-            map5.add(polyline5);
-            map5.setFitView();
-            
-            // Day 6 地图 - 长隆
-            const map6 = new AMap.Map('map-day6', {
+                markers: ['珠海金湾机场', '汉庭酒店']
+            },
+            day1: {
+                center: [113.5769, 22.2711],
                 zoom: 14,
-                center: [113.329102, 22.998047]
-            });
-            
-            const markers6 = [
-                { position: [113.329102, 22.998047], title: '长隆野生动物世界' },
-                { position: [113.329590, 22.995117], title: '长隆国际大马戏' }
-            ];
-            
-            markers6.forEach((m, i) => {
-                const marker = new AMap.Marker({
-                    position: m.position,
-                    title: m.title,
-                    label: {
-                        content: `<div style="background:#D32F2F;color:#fff;padding:2px 6px;font-size:12px;">${i+1}. ${m.title}</div>`,
-                        direction: 'top'
-                    }
-                });
-                map6.add(marker);
-            });
-            
-            const polyline6 = new AMap.Polyline({
-                path: markers6.map(m => m.position),
-                strokeColor: '#D32F2F',
-                strokeWeight: 3
-            });
-            map6.add(polyline6);
-            map6.setFitView();
-            
-            // Day 7 地图 - 广州塔、沙面岛、广州站
-            const map7 = new AMap.Map('map-day7', {
+                markers: ['滨海大厦', '珠海渔女', '爱情邮局']
+            },
+            day2: {
+                center: [113.5350, 22.1500],
+                zoom: 11,
+                markers: ['长隆海洋王国', '珠海渔女']
+            },
+            day3: {
+                center: [113.5530, 22.2210],
+                zoom: 13,
+                markers: ['拱北口岸']
+            },
+            day4: {
+                center: [113.5530, 22.2210],
+                zoom: 13,
+                markers: ['珠海口岸']
+            },
+            day5: {
+                center: [113.2644, 23.1200],
+                zoom: 13,
+                markers: ['珠海站', '陶陶居', '光栖公寓', '陈家祠', '北京路', '天字码头']
+            },
+            day6: {
+                center: [113.3290, 22.9980],
+                zoom: 14,
+                markers: ['长隆动物园', '长隆大马戏']
+            },
+            day7: {
+                center: [113.2800, 23.1200],
                 zoom: 12,
-                center: [113.28, 23.12]
-            });
+                markers: ['广州塔', '炳胜品味', '沙面岛', '广州站']
+            }
+        };
+        
+        // 存储地图实例
+        const mapInstances = {};
+        
+        // 初始化每日地图
+        function initDayMaps() {
+            // 检查高德地图是否加载成功
+            if (typeof AMap === 'undefined') {
+                console.warn('高德地图 API 未加载，地图功能不可用');
+                return;
+            }
             
-            const markers7 = [
-                { position: [113.324219, 23.106445], title: '广州塔' },
-                { position: [113.321289, 23.108398], title: '炳胜品味' },
-                { position: [113.235352, 23.108398], title: '沙面岛' },
-                { position: [113.256836, 23.148438], title: '广州站' }
-            ];
-            
-            markers7.forEach((m, i) => {
-                const marker = new AMap.Marker({
-                    position: m.position,
-                    title: m.title,
-                    label: {
-                        content: `<div style="background:#D32F2F;color:#fff;padding:2px 6px;font-size:12px;">${i+1}. ${m.title}</div>`,
-                        direction: 'top'
+            Object.keys(dayMaps).forEach(dayId => {
+                const mapContainer = document.getElementById(`map-${dayId}`);
+                if (!mapContainer) return;
+                
+                const dayData = dayMaps[dayId];
+                
+                // 创建地图实例
+                const map = new AMap.Map(`map-${dayId}`, {
+                    zoom: dayData.zoom,
+                    center: dayData.center,
+                    mapStyle: 'amap://styles/whitesmoke'
+                });
+                
+                mapInstances[dayId] = map;
+                
+                // 添加标记点
+                dayData.markers.forEach(name => {
+                    const loc = locations[name];
+                    if (loc) {
+                        const marker = new AMap.Marker({
+                            position: [loc.lng, loc.lat],
+                            title: name,
+                            label: {
+                                content: name,
+                                direction: 'top'
+                            }
+                        });
+                        marker.setMap(map);
+                        
+                        // 点击标记打开信息窗口
+                        marker.on('click', () => {
+                            const infoWindow = new AMap.InfoWindow({
+                                content: `<div style="padding: 10px;"><strong>${name}</strong><br>${loc.address}<br><a href="javascript:navigateTo('${name}')" style="color: #D32F2F;">导航前往</a></div>`,
+                                offset: new AMap.Pixel(0, -30)
+                            });
+                            infoWindow.open(map, marker.getPosition());
+                        });
                     }
                 });
-                map7.add(marker);
             });
+        }
+        
+        // 导航到指定地点（调用高德地图APP或网页版）
+        function navigateTo(placeName) {
+            const loc = locations[placeName];
+            if (!loc) {
+                alert('未找到该地点的位置信息');
+                return;
+            }
             
-            const polyline7 = new AMap.Polyline({
-                path: markers7.map(m => m.position),
-                strokeColor: '#D32F2F',
-                strokeWeight: 3
-            });
-            map7.add(polyline7);
-            map7.setFitView();
+            // 尝试调用高德地图APP，如果失败则打开网页版
+            const amapUrl = `https://uri.amap.com/navigation?to=${loc.lng},${loc.lat},${encodeURIComponent(placeName)}&mode=car&policy=1&src=travel-guide&coordinate=gaode&callnative=1`;
+            
+            // 检测是否为移动设备
+            const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+            
+            if (isMobile) {
+                // 移动设备尝试打开高德地图APP
+                window.location.href = amapUrl;
+            } else {
+                // PC端打开高德地图网页版
+                const webUrl = `https://www.amap.com/search?query=${encodeURIComponent(placeName)}&city=&geoobj=${loc.lng}%7C${loc.lat}`;
+                window.open(webUrl, '_blank');
+            }
         }
         
         // 页面加载完成后初始化地图
-        window.onload = function() {
-            initMaps();
-        };
+        document.addEventListener('DOMContentLoaded', function() {
+            // 延迟初始化地图，确保DOM完全加载
+            setTimeout(initDayMaps, 500);
+        });
+        
+        // 更新所有导航链接
+        document.querySelectorAll('.map-link').forEach(link => {
+            const text = link.querySelector('span')?.textContent || link.textContent;
+            const match = text.match(/导航到(.+)/);
+            if (match) {
+                const placeName = match[1].trim();
+                link.href = 'javascript:void(0)';
+                link.onclick = function(e) {
+                    e.preventDefault();
+                    navigateTo(placeName);
+                };
+            }
+        });
         
         // 滚动到指定天数详情
         function scrollToDay(dayId) {
