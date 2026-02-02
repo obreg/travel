@@ -1,0 +1,2608 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>春节假期 · 珠海+澳门+香港+广州 | 构成主义旅行攻略</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS -->
+    <link href="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-100-M/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- 高德地图 JS API -->
+    <script src="https://webapi.amap.com/maps?v=2.0&key=f5982da0f377324fbf07df1d0962d6a7"></script>
+    
+    <style>
+        :root {
+            --primary-red: #D32F2F;
+            --dark-red: #B71C1C;
+            --accent-red: #FF5252;
+            --black: #1A1A1A;
+            --dark-gray: #2D2D2D;
+            --light-gray: #E0E0E0;
+            --white: #FFFFFF;
+            --cream: #F5F5F0;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            background-color: var(--cream);
+            color: var(--black);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* 构成主义风格基础 */
+        .constructivist-bg {
+            background: linear-gradient(135deg, var(--black) 0%, var(--dark-gray) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .constructivist-bg::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 50px,
+                rgba(211, 47, 47, 0.03) 50px,
+                rgba(211, 47, 47, 0.03) 100px
+            );
+            animation: diagonalMove 30s linear infinite;
+        }
+        
+        @keyframes diagonalMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(100px, 100px); }
+        }
+        
+        /* 几何装饰元素 */
+        .geo-circle {
+            position: absolute;
+            border: 3px solid var(--primary-red);
+            border-radius: 50%;
+            opacity: 0.3;
+        }
+        
+        .geo-triangle {
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-left: 30px solid transparent;
+            border-right: 30px solid transparent;
+            border-bottom: 52px solid var(--primary-red);
+            opacity: 0.2;
+        }
+        
+        .geo-line {
+            position: absolute;
+            background: var(--primary-red);
+            opacity: 0.4;
+        }
+        
+        /* 标题区域 */
+        .hero-section {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem 1rem;
+            position: relative;
+        }
+        
+        .hero-title {
+            font-family: 'Noto Serif SC', serif;
+            font-size: clamp(2.5rem, 10vw, 5rem);
+            font-weight: 700;
+            color: var(--white);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            text-align: center;
+            position: relative;
+            z-index: 10;
+            transform: skewY(-3deg);
+            text-shadow: 4px 4px 0 var(--primary-red);
+        }
+        
+        .hero-subtitle {
+            font-size: clamp(1rem, 4vw, 1.5rem);
+            color: var(--primary-red);
+            font-weight: 700;
+            letter-spacing: 0.3em;
+            margin-top: 1rem;
+            transform: skewY(-3deg);
+            position: relative;
+            z-index: 10;
+        }
+        
+        .hero-date {
+            font-size: clamp(0.9rem, 3vw, 1.2rem);
+            color: var(--light-gray);
+            margin-top: 2rem;
+            padding: 1rem 2rem;
+            border: 2px solid var(--primary-red);
+            transform: rotate(-2deg);
+            position: relative;
+            z-index: 10;
+        }
+        
+        .hero-info-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 2rem;
+            width: 100%;
+            max-width: 400px;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .info-card {
+            background: var(--primary-red);
+            color: var(--white);
+            padding: 1rem;
+            text-align: center;
+            transform: skewX(-5deg);
+            transition: transform 0.3s ease;
+        }
+        
+        .info-card:hover {
+            transform: skewX(-5deg) scale(1.05);
+        }
+        
+        .info-card i {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        
+        .info-card span {
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        
+        /* 大型几何装饰 */
+        .hero-geo-1 {
+            width: 300px;
+            height: 300px;
+            top: 10%;
+            right: -100px;
+        }
+        
+        .hero-geo-2 {
+            width: 150px;
+            height: 150px;
+            bottom: 20%;
+            left: -50px;
+        }
+        
+        .hero-triangle-1 {
+            top: 30%;
+            left: 10%;
+            transform: rotate(45deg);
+        }
+        
+        .hero-line-1 {
+            width: 200px;
+            height: 4px;
+            bottom: 30%;
+            right: 10%;
+            transform: rotate(-30deg);
+        }
+        
+        /* 行程概览区 */
+        .overview-section {
+            background: var(--white);
+            padding: 3rem 1rem;
+            position: relative;
+        }
+        
+        .section-title {
+            font-family: 'Noto Serif SC', serif;
+            font-size: clamp(1.8rem, 6vw, 2.5rem);
+            font-weight: 700;
+            color: var(--black);
+            text-align: center;
+            margin-bottom: 2rem;
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: var(--primary-red);
+        }
+        
+        .overview-timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+        
+        .overview-timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(to bottom, var(--primary-red), var(--black));
+        }
+        
+        .day-overview {
+            position: relative;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: var(--cream);
+            border-left: 4px solid var(--primary-red);
+            transform: translateX(0);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .day-overview:hover {
+            transform: translateX(10px);
+            box-shadow: -10px 10px 0 var(--primary-red);
+        }
+        
+        .day-overview::before {
+            content: '';
+            position: absolute;
+            left: -2.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+            background: var(--primary-red);
+            border-radius: 50%;
+            border: 4px solid var(--white);
+        }
+        
+        .day-label {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary-red);
+            margin-bottom: 0.5rem;
+        }
+        
+        .day-date {
+            font-size: 0.9rem;
+            color: var(--dark-gray);
+            margin-bottom: 0.5rem;
+        }
+        
+        .day-highlights {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        
+        .highlight-tag {
+            background: var(--black);
+            color: var(--white);
+            padding: 0.3rem 0.8rem;
+            font-size: 0.8rem;
+            transform: skewX(-5deg);
+        }
+        
+        /* 详细行程区 */
+        .detail-section {
+            padding: 3rem 1rem;
+            position: relative;
+        }
+        
+        .day-detail-card {
+            background: var(--white);
+            margin-bottom: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .day-header {
+            background: var(--black);
+            color: var(--white);
+            padding: 1.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .day-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100px;
+            height: 100%;
+            background: var(--primary-red);
+            transform: skewX(-20deg) translateX(50px);
+        }
+        
+        .day-number {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            line-height: 1;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .day-title {
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-top: 0.5rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .day-weather {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            text-align: right;
+            z-index: 2;
+        }
+        
+        .weather-icon {
+            font-size: 2rem;
+            color: var(--white);
+        }
+        
+        .weather-temp {
+            font-size: 0.9rem;
+            color: var(--light-gray);
+        }
+        
+        /* 时间轴样式 */
+        .schedule-timeline {
+            padding: 1.5rem;
+        }
+        
+        .schedule-item {
+            display: flex;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-left: 1rem;
+            border-left: 3px solid var(--light-gray);
+        }
+        
+        .schedule-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .schedule-item::before {
+            content: '';
+            position: absolute;
+            left: -8px;
+            top: 0;
+            width: 12px;
+            height: 12px;
+            background: var(--primary-red);
+            transform: rotate(45deg);
+        }
+        
+        .schedule-time {
+            min-width: 60px;
+            font-weight: 700;
+            color: var(--primary-red);
+            font-size: 0.9rem;
+        }
+        
+        .schedule-content {
+            flex: 1;
+            padding-left: 1rem;
+        }
+        
+        .schedule-title {
+            font-weight: 600;
+            color: var(--black);
+            margin-bottom: 0.3rem;
+        }
+        
+        .schedule-desc {
+            font-size: 0.85rem;
+            color: var(--dark-gray);
+            margin-bottom: 0.5rem;
+        }
+        
+        .schedule-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            font-size: 0.75rem;
+        }
+        
+        .meta-tag {
+            background: var(--cream);
+            padding: 0.2rem 0.5rem;
+            border-radius: 2px;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+        
+        .meta-tag i {
+            color: var(--primary-red);
+        }
+        
+        /* 地图链接按钮 */
+        .map-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--primary-red);
+            color: var(--white);
+            padding: 0.4rem 0.8rem;
+            font-size: 0.75rem;
+            text-decoration: none;
+            transform: skewX(-5deg);
+            transition: background 0.3s ease;
+        }
+        
+        .map-link:hover {
+            background: var(--dark-red);
+        }
+        
+        .map-link span {
+            transform: skewX(5deg);
+        }
+        
+        /* 每日地图预览 */
+        .day-map-container {
+            padding: 1rem;
+            background: var(--cream);
+        }
+        
+        .map-title {
+            font-weight: 600;
+            color: var(--black);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .map-title i {
+            color: var(--primary-red);
+        }
+        
+        .day-map {
+            width: 100%;
+            height: 300px;
+            border: 3px solid var(--black);
+        }
+        
+        /* 交通信息区 */
+        .transport-section {
+            background: var(--black);
+            color: var(--white);
+            padding: 3rem 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .transport-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: repeating-linear-gradient(
+                -45deg,
+                transparent,
+                transparent 20px,
+                rgba(211, 47, 47, 0.1) 20px,
+                rgba(211, 47, 47, 0.1) 40px
+            );
+        }
+        
+        .transport-section .section-title {
+            color: var(--white);
+        }
+        
+        .transport-card {
+            background: var(--dark-gray);
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            position: relative;
+            border-left: 4px solid var(--primary-red);
+        }
+        
+        .transport-route {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .route-point {
+            text-align: center;
+        }
+        
+        .route-city {
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+        
+        .route-detail {
+            font-size: 0.8rem;
+            color: var(--light-gray);
+        }
+        
+        .route-arrow {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .route-arrow::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background: var(--primary-red);
+        }
+        
+        .route-arrow i {
+            background: var(--dark-gray);
+            padding: 0 0.5rem;
+            color: var(--primary-red);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .transport-info {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            font-size: 0.85rem;
+        }
+        
+        .transport-info-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .transport-info-item i {
+            color: var(--primary-red);
+            width: 20px;
+        }
+        
+        /* 住宿餐饮区 */
+        .accommodation-section {
+            background: var(--white);
+            padding: 3rem 1rem;
+        }
+        
+        .accommodation-card {
+            background: var(--cream);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .accommodation-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: var(--primary-red);
+        }
+        
+        .accommodation-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+        
+        .accommodation-name {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--black);
+        }
+        
+        .accommodation-dates {
+            font-size: 0.85rem;
+            color: var(--dark-gray);
+        }
+        
+        .accommodation-badge {
+            background: var(--primary-red);
+            color: var(--white);
+            padding: 0.3rem 0.8rem;
+            font-size: 0.75rem;
+            transform: skewX(-5deg);
+        }
+        
+        .accommodation-details {
+            display: grid;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+        }
+        
+        .accommodation-details p {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .accommodation-details i {
+            color: var(--primary-red);
+            width: 20px;
+        }
+        
+        /* 餐厅推荐 */
+        .restaurant-grid {
+            display: grid;
+            gap: 1rem;
+        }
+        
+        .restaurant-card {
+            background: var(--cream);
+            padding: 1rem;
+            display: flex;
+            gap: 1rem;
+            border-left: 3px solid var(--primary-red);
+            transition: transform 0.3s ease;
+        }
+        
+        .restaurant-card:hover {
+            transform: translateX(5px);
+        }
+        
+        .restaurant-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--black);
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+        
+        .restaurant-info {
+            flex: 1;
+        }
+        
+        .restaurant-name {
+            font-weight: 600;
+            color: var(--black);
+            margin-bottom: 0.3rem;
+        }
+        
+        .restaurant-specialty {
+            font-size: 0.85rem;
+            color: var(--dark-gray);
+            margin-bottom: 0.3rem;
+        }
+        
+        .restaurant-price {
+            font-size: 0.8rem;
+            color: var(--primary-red);
+            font-weight: 500;
+        }
+        
+        /* 实用信息区 */
+        .practical-section {
+            background: var(--black);
+            color: var(--white);
+            padding: 3rem 1rem;
+            position: relative;
+        }
+        
+        .practical-section .section-title {
+            color: var(--white);
+        }
+        
+        .practical-grid {
+            display: grid;
+            gap: 1.5rem;
+        }
+        
+        .practical-card {
+            background: var(--dark-gray);
+            padding: 1.5rem;
+            position: relative;
+        }
+        
+        .practical-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--primary-red);
+        }
+        
+        .practical-title {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .practical-title i {
+            color: var(--primary-red);
+        }
+        
+        .emergency-list {
+            display: grid;
+            gap: 0.5rem;
+        }
+        
+        .emergency-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem;
+            background: rgba(255,255,255,0.05);
+        }
+        
+        .emergency-label {
+            color: var(--light-gray);
+        }
+        
+        .emergency-value {
+            color: var(--primary-red);
+            font-weight: 600;
+        }
+        
+        /* 必备清单 */
+        .checklist-section {
+            background: var(--white);
+            padding: 3rem 1rem;
+        }
+        
+        .checklist-category {
+            margin-bottom: 2rem;
+        }
+        
+        .checklist-category-title {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--black);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--primary-red);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .checklist-category-title i {
+            color: var(--primary-red);
+        }
+        
+        .checklist-items {
+            display: grid;
+            gap: 0.5rem;
+        }
+        
+        .checklist-item {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 0.8rem;
+            background: var(--cream);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .checklist-item:hover {
+            background: var(--light-gray);
+        }
+        
+        .checklist-item.checked {
+            opacity: 0.6;
+        }
+        
+        .checklist-item.checked .item-text {
+            text-decoration: line-through;
+        }
+        
+        .checkbox {
+            width: 24px;
+            height: 24px;
+            border: 2px solid var(--primary-red);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .checklist-item.checked .checkbox {
+            background: var(--primary-red);
+            color: var(--white);
+        }
+        
+        .item-text {
+            flex: 1;
+            font-size: 0.95rem;
+        }
+        
+        /* 预算摘要 */
+        .budget-section {
+            background: var(--cream);
+            padding: 3rem 1rem;
+        }
+        
+        .budget-card {
+            background: var(--white);
+            padding: 1.5rem;
+            border: 3px solid var(--black);
+            position: relative;
+        }
+        
+        .budget-card::before {
+            content: '';
+            position: absolute;
+            top: -3px;
+            left: -3px;
+            right: -3px;
+            height: 10px;
+            background: var(--primary-red);
+        }
+        
+        .budget-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.8rem 0;
+            border-bottom: 1px dashed var(--light-gray);
+        }
+        
+        .budget-item:last-child {
+            border-bottom: none;
+        }
+        
+        .budget-label {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .budget-label i {
+            color: var(--primary-red);
+        }
+        
+        .budget-value {
+            font-weight: 600;
+            color: var(--black);
+        }
+        
+        .budget-total {
+            background: var(--black);
+            color: var(--white);
+            padding: 1rem;
+            margin-top: 1rem;
+            display: flex;
+            justify-content: space-between;
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+        
+        .budget-total .budget-value {
+            color: var(--primary-red);
+        }
+        
+        /* 重要提示 */
+        .tips-section {
+            background: var(--primary-red);
+            color: var(--white);
+            padding: 3rem 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .tips-section::before {
+            content: '!';
+            position: absolute;
+            top: -50px;
+            right: -30px;
+            font-size: 300px;
+            font-weight: 900;
+            opacity: 0.1;
+            font-family: 'Noto Serif SC', serif;
+        }
+        
+        .tips-section .section-title {
+            color: var(--white);
+        }
+        
+        .tips-section .section-title::after {
+            background: var(--white);
+        }
+        
+        .tip-item {
+            background: rgba(0,0,0,0.2);
+            padding: 1rem;
+            margin-bottom: 1rem;
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+        
+        .tip-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--white);
+            color: var(--primary-red);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+            transform: rotate(45deg);
+        }
+        
+        .tip-icon i {
+            transform: rotate(-45deg);
+        }
+        
+        .tip-content {
+            flex: 1;
+        }
+        
+        .tip-title {
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+        }
+        
+        .tip-desc {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        /* 页脚 */
+        .footer {
+            background: var(--black);
+            color: var(--white);
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+        
+        .footer-logo {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--primary-red);
+        }
+        
+        .footer-text {
+            font-size: 0.85rem;
+            color: var(--light-gray);
+        }
+        
+        /* 构成主义装饰元素 */
+        .constructivist-divider {
+            height: 60px;
+            background: var(--black);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .constructivist-divider::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--primary-red);
+            transform: translateY(-50%) skewY(-3deg);
+        }
+        
+        .constructivist-divider::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 20%;
+            width: 100px;
+            height: 100%;
+            background: var(--primary-red);
+            transform: skewX(-20deg);
+        }
+        
+        /* 小红书链接样式 */
+        .xiaohongshu-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            background: #FF2442;
+            color: var(--white);
+            padding: 0.3rem 0.6rem;
+            font-size: 0.7rem;
+            text-decoration: none;
+            border-radius: 2px;
+            transition: opacity 0.3s ease;
+        }
+        
+        .xiaohongshu-link:hover {
+            opacity: 0.8;
+        }
+        
+        /* 响应式调整 */
+        @media (min-width: 768px) {
+            .hero-info-grid {
+                grid-template-columns: repeat(4, 1fr);
+                max-width: 600px;
+            }
+            
+            .transport-info {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            
+            .practical-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .checklist-items {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        /* 滚动动画 */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* 地图容器样式 */
+        .amap-container {
+            width: 100%;
+            height: 300px;
+            border: 3px solid var(--black);
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- 英雄区域 - 行程标题 -->
+    <section class="hero-section constructivist-bg">
+        <!-- 几何装饰 -->
+        <div class="geo-circle hero-geo-1"></div>
+        <div class="geo-circle hero-geo-2"></div>
+        <div class="geo-triangle hero-triangle-1"></div>
+        <div class="geo-line hero-line-1"></div>
+        
+        <h1 class="hero-title">春节假期</h1>
+        <p class="hero-subtitle">珠海 · 澳门 · 香港 · 广州</p>
+        
+        <div class="hero-date">
+            <i class="fas fa-calendar-alt"></i>
+            2026年2月15日 - 2月23日 | 7天8晚
+        </div>
+        
+        <div class="hero-info-grid">
+            <div class="info-card">
+                <i class="fas fa-users"></i>
+                <span>6人同行<br>4大2小</span>
+            </div>
+            <div class="info-card">
+                <i class="fas fa-plane-departure"></i>
+                <span>出发城市<br>北京</span>
+            </div>
+            <div class="info-card">
+                <i class="fas fa-cloud-sun"></i>
+                <span>预计天气<br>15-22°C</span>
+            </div>
+            <div class="info-card">
+                <i class="fas fa-hotel"></i>
+                <span>住宿安排<br>珠海4晚+广州2晚</span>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 行程概览区 -->
+    <section class="overview-section">
+        <h2 class="section-title">行程概览</h2>
+        
+        <div class="overview-timeline">
+            <div class="day-overview fade-in" onclick="scrollToDay('day0')">
+                <div class="day-label">DAY 0</div>
+                <div class="day-date">2月15日 周日 · 除夕前夜</div>
+                <div class="day-highlights">
+                    <span class="highlight-tag"><i class="fas fa-plane"></i> 北京→珠海</span>
+                    <span class="highlight-tag">飞机</span>
+                    <span class="highlight-tag"><i class="fas fa-hotel"></i> 汉庭酒店</span>
+                </div>
+            </div>
+            <div class="day-overview fade-in" onclick="scrollToDay('day1')">
+                <div class="day-label">DAY 1</div>
+                <div class="day-date">2月16日 周一 · 除夕</div>
+                <div class="day-highlights">
+                    <span class="highlight-tag"><i class="fas fa-home"></i> 民宿入住</span>
+                    <span class="highlight-tag"><i class="fas fa-utensils"></i> 年夜饭</span>
+                    <span class="highlight-tag"><i class="fas fa-tv"></i> 春晚</span>
+                </div>
+            </div>
+            </div>
+            <div class="day-overview fade-in" onclick="scrollToDay('day2')">
+                <div class="day-label">DAY 2</div>
+                <div class="day-date">2月17日 周二 · 初一</div>
+                <div class="day-highlights">
+                    <span class="highlight-tag"><i class="fas fa-fish"></i> 长隆海洋王国</span>
+                    <span class="highlight-tag"><i class="fas fa-heart"></i> 爱情邮局</span>
+                    <span class="highlight-tag"><i class="fas fa-camera"></i> 珠海渔女</span>
+                </div>
+            </div>
+            </div>
+            <div class="day-overview fade-in" onclick="scrollToDay('day3')">
+                <div class="day-label">DAY 3</div>
+                <div class="day-date">2月18日 周三 · 初二</div>
+                <div class="day-highlights">
+                    <span class="highlight-tag"><i class="fas fa-passport"></i> 澳门一日游</span>
+                    <span class="highlight-tag"><i class="fas fa-dice"></i> 威尼斯人</span>
+                    <span class="highlight-tag"><i class="fas fa-building"></i> 银河酒店</span>
+                </div>
+            </div>
+            </div>
+            <div class="day-overview fade-in" onclick="scrollToDay('day4')">
+                <div class="day-label">DAY 4</div>
+                <div class="day-date">2月19日 周四 · 初三</div>
+                <div class="day-highlights">
+                    <span class="highlight-tag"><i class="fas fa-bridge"></i> 港珠澳大桥</span>
+                    <span class="highlight-tag"><i class="fas fa-star"></i> 星光大道</span>
+                    <span class="highlight-tag"><i class="fas fa-ship"></i> 维港夜游</span>
+                </div>
+            </div>
+            </div>
+            <div class="day-overview fade-in" onclick="scrollToDay('day5')">
+                <div class="day-label">DAY 5</div>
+                <div class="day-date">2月20日 周五 · 初四</div>
+                <div class="day-highlights">
+                    <span class="highlight-tag"><i class="fas fa-train"></i> 珠海→广州</span>
+                    <span class="highlight-tag"><i class="fas fa-landmark"></i> 陈家祠</span>
+                    <span class="highlight-tag"><i class="fas fa-water"></i> 珠江夜游</span>
+                </div>
+            </div>
+            </div>
+            <div class="day-overview fade-in" onclick="scrollToDay('day6')">
+                <div class="day-label">DAY 6</div>
+                <div class="day-date">2月21日 周六 · 初五</div>
+                <div class="day-highlights">
+                    <span class="highlight-tag"><i class="fas fa-paw"></i> 长隆动物园</span>
+                    <span class="highlight-tag"><i class="fas fa-theater-masks"></i> 长隆大马戏</span>
+                </div>
+            </div>
+            </div>
+            <div class="day-overview fade-in" onclick="scrollToDay('day7')">
+                <div class="day-label">DAY 7</div>
+                <div class="day-date">2月22日 周日 · 初六</div>
+                <div class="day-highlights">
+                    <span class="highlight-tag"><i class="fas fa-broadcast-tower"></i> 广州塔</span>
+                    <span class="highlight-tag"><i class="fas fa-church"></i> 沙面岛</span>
+                    <span class="highlight-tag"><i class="fas fa-home"></i> 返程北京</span>
+                </div>
+            </div>
+            </div>
+        </div>
+    </section>
+    
+    <div class="constructivist-divider"></div>
+    
+    <!-- 详细行程区 -->
+    <section class="detail-section">
+        <h2 class="section-title">详细行程</h2>
+        
+        <!-- Day 0 -->
+        <div id="day0" class="day-detail-card fade-in">
+            <div class="day-header">
+                <div class="day-number">00</div>
+                <div class="day-title">北京 → 珠海 | 出发日</div>
+                <div class="day-weather">
+                    <i class="fas fa-moon weather-icon"></i>
+                    <div class="weather-temp">夜间出发</div>
+                </div>
+            </div>
+            
+            <div class="schedule-timeline">
+                <div class="schedule-item">
+                    <div class="schedule-time">19:35</div>
+                    <div class="schedule-content">
+                        <div class="schedule-title">首都机场T3出发</div>
+                        <div class="schedule-desc">乘坐飞机前往珠海金湾机场</div>
+                        <div class="schedule-meta">
+                            <span class="meta-tag"><i class="fas fa-plane"></i> 飞机</span>
+                            <span class="meta-tag"><i class="fas fa-clock"></i> 约3.5小时</span>
+                            <span class="meta-tag"><i class="fas fa-info-circle"></i> 首都T3航站楼</span>
+                        </div>
+                        <a href="https://uri.amap.com/marker?position=116.603039,40.080111&name=北京首都国际机场T3航站楼&coordinate=gaode" target="_blank" class="map-link" style="margin-top: 0.5rem;">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>导航到首都机场T3</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="schedule-item">
+                    <div class="schedule-time">23:20</div>
+                    <div class="schedule-content">
+                        <div class="schedule-title">抵达珠海金湾机场T1</div>
+                        <div class="schedule-desc">抵达珠海金湾国际机场T1航站楼</div>
+                        <div class="schedule-meta">
+                            <span class="meta-tag"><i class="fas fa-plane-arrival"></i> 到达</span>
+                            <span class="meta-tag"><i class="fas fa-building"></i> T1航站楼</span>
+                        </div>
+                        <a href="https://uri.amap.com/marker?position=113.376358,22.006444&name=珠海金湾国际机场T1&coordinate=gaode" target="_blank" class="map-link" style="margin-top: 0.5rem;">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>导航到珠海金湾机场</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="schedule-item">
+                    <div class="schedule-time">夜间</div>
+                    <div class="schedule-content">
+                        <div class="schedule-title">入住汉庭酒店（珠海金湾机场店）</div>
+                        <div class="schedule-desc">到达后入住机场附近酒店，休息调整</div>
+                        <div class="schedule-meta">
+                            <span class="meta-tag"><i class="fas fa-hotel"></i> 汉庭酒店</span>
+                            <span class="meta-tag"><i class="fas fa-bed"></i> 1晚住宿</span>
+                            <span class="meta-tag"><i class="fas fa-map-marker-alt"></i> 机场附近</span>
+                        </div>
+                        <a href="https://uri.amap.com/marker?position=113.380000,22.010000&name=汉庭酒店(珠海金湾机场店)&coordinate=gaode" target="_blank" class="map-link" style="margin-top: 0.5rem;">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>导航到汉庭酒店</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="day-map-container">
+                <div class="map-title"><i class="fas fa-route"></i> 今日行程地图</div>
+                <div id="map-day0" class="amap-container"></div>
+            </div>
+        </div>
+        
+        <!-- Day 1 -->
+        <div id="day1" class="day-detail-card fade-in">
+            <div class="day-header">
+                <div class="day-number">01</div>
+                <div class="day-title">珠海 | 除夕团圆</div>
+                <div class="day-weather">
+                    <i class="fas fa-cloud-sun weather-icon"></i>
+                    <div class="weather-temp">18°C 多云</div>
+                </div>
+            </div>
+            <div class="schedule-timeline">
+                <div class="schedule-item">
+                    <div class="schedule-time">上午</div>
+                    <div class="schedule-content">
+                        <div class="schedule-title">从汉庭酒店出发</div>
+                        <div class="schedule-desc">从金湾机场汉庭酒店退房，打车前往海边民宿</div>
+                        <div class="schedule-meta">
+                            <span class="meta-tag"><i class="fas fa-taxi"></i> 打车</span>
+                            <span class="meta-tag"><i class="fas fa-clock"></i> 约40分钟</span>
+                        </div>
+                        <a href="https://uri.amap.com/marker?position=113.380000,22.010000&name=汉庭酒店(珠海金湾机场店)&coordinate=gaode" target="_blank" class="map-link" style="margin-top: 0.5rem;">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>导航到汉庭酒店</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="schedule-item">
+                    <div class="schedule-time">上午</div>
+                    <div class="schedule-content">
+                        <div class="schedule-title">海边民宿办理入住</div>
+                        <div class="schedule-desc">入住珠海海边民宿，休息调整</div>
+                        <div class="schedule-meta">
+                            <span class="meta-tag"><i class="fas fa-bed"></i> 4晚住宿</span>
+                            <span class="meta-tag"><i class="fas fa-calendar-check"></i> 11月预订</span>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                
+                <div class="schedule-item">
+                    <div class="schedule-time">中午</div>
+                    <div class="schedule-content">
+                        <div class="schedule-title">午餐</div>
+                        <div class="schedule-desc">民宿内订餐或周边餐馆用餐</div>
+                        <div class="schedule-meta">
+                            <span class="meta-tag"><i class="fas fa-utensils"></i> 当地美食</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="schedule-item">
+                    <div class="schedule-time">下午</div>
+                    <div class="schedule-content">
+                        <div class="schedule-title">采购年夜饭物资</div>
+                        <div class="schedule-desc">前往周边超市采购年夜饭食材</div>
+                        <div class="schedule-meta">
+                            <span class="meta-tag"><i class="fas fa-shopping-cart"></i> 超市采购</span>
+                            <span class="meta-tag"><i class="fas fa-info-circle"></i> 王鑫玥自带饺子皮</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="schedule-item">
+                    <div class="schedule-time">傍晚</div>
+                    <div class="schedule-content">
+                        <div class="schedule-title">海边散步观景</div>
+                        <div class="schedule-desc">在海边民宿附近散步，欣赏海景</div>
+                        <div class="schedule-meta">
+                            <span class="meta-tag"><i class="fas fa-walking"></i> 步行</span>
+                            <span class="meta-tag"><i class="fas fa-camera"></i> 拍照打卡</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="schedule-item">
+                    <div class="schedule-time">夜间</div>
+                    <div class="schedule-content">
+                        <div class="schedule-title">年夜饭 + 春晚 + 棋牌</div>
+                        <div class="schedule-desc">在民宿内享用年夜饭，观看春晚，家庭娱乐</div>
+                        <div class="schedule-meta">
+                            <span class="meta-tag"><i class="fas fa-glass-cheers"></i> 团圆饭</span>
+                            <span class="meta-tag"><i class="fas fa-tv"></i> 春晚</span>
+                            <span class="meta-tag"><i class="fas fa-chess"></i> 棋牌</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="day-map-container">
+                <div class="map-title"><i class="fas fa-route"></i> 今日行程地图</div>
+                <div id="map-day1" class="amap-container"></div>
+            </div>
+        </div>
+        
+        <!-- Day 2 -->
+        <div id="day2" class="day-detail-card fade-in">
+            <div class="day-header">
+                <div class="day-number">02</div>
+                <div class="day-title">珠海 | 初一探索</div>
+                <div class="day-weather">
+                    <i class="fas fa-sun weather-icon"></i>
+                    <div class="weather-temp">20°C 晴</div>
+                </div>
+            </div>
+            
+            <div class="schedule-timeline">
+                <div class="schedule-item">
+                    <div class="schedule-time">上午</div>
+                    <div class="schedule-content">
+                        <div class="schedule-title">长隆海洋王国</div>
+                        <div class="schedule-desc">游览珠海长隆海洋王国，观赏海洋生物表演</div>
+                        <div class="schedule-meta">
+                            <span class="meta-tag"><i class="fas fa-ticket-alt"></i> 门票提前购买</span>
+                            <span class="meta-tag"><i class="fas fa-clock"></i> 全天游玩</span>
+                            <span class="meta-tag"><i class="fas fa-child"></i> 亲子推荐</span>
+                        </div>
+                        <a href="https://uri.amap.com/marker?position=113.534653,22.099131&name=珠海长隆海洋王国&coordinate=gaode" target="_blank" class="map-link" style="margin-top: 0.5rem;">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>导航到长隆海洋王国</span>
+                        </a>
+                        <a href="https://www.xiaohongshu.com/explore/6579f8c5000000001203d8e8" target="_blank" class="xiaohongshu-link" style="margin-left: 0.5rem;">
+                            <i class="fab fa-redhat"></i> 小红书攻略
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="schedule-item">
+                    <div class="schedule-time">傍晚</div>
+                    <div class="schedule-content">
+                        <div class="schedule-title">爱情邮局 + 灯塔拍照</div>
+                        <div class="schedule-desc">情侣路漫步，打卡珠海渔女、爱情邮局</div>
+                        <div class="schedule-meta">
+                            <span class="meta-tag"><i class="fas fa-heart"></i> 网红打卡点</span>
+                            <span class="meta-tag"><i class="fas fa-camera"></i> 白色建筑+大海</span>
+                            <span class="meta-tag"><i class="fas fa-star"></i> 出片率高</span>
+                        </div>
+                        <a href="https://uri.amap.com/marker?position=113.574219,22.264648&name=珠海渔女&coordinate=gaode" target="_blank" class="map-link" style="margin-top: 0.5rem;">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>导航到珠海渔女</span>
+                        </a>
+                        <a href="https://uri.amap.com/marker?position=113.577881,22.268066&name=爱情邮局&coordinate=gaode" target="_blank" class="map-link" style="margin-left: 0.5rem;">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>导航到爱情邮局</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="day-map-container">
+                <div class="map-title"><i class="fas fa-route"></i> 今日行程地图</div>
+                <div id="map-day2" class="amap-container"></div>
+            </div>
+        </div>
+        
+        <!-- Day 3 -->
+        <div id="day3" class="day-detail-card fade-in">
+            <div class="day-header">
+                <div class="day-number">03</div>
+                <div class="day-title">澳门一日游 | 初二</div>
+                <div class="day-weather">
+                    <i class="fas fa-cloud weather-icon"></i>
+                    <div class="weather-temp">19°C 阴</div>
+                </div>
+            </div>
+            
+            <div class="schedule-timeline">
+                <div class="schedule-item">
+                    <div class="schedule-time">07:30</div>
+                    <div class="schedule-content">
+                        <div class="schedule-title">拱北/横琴口岸过关</div>
+                        <div class="schedule-desc">带好港澳通行证，人脸识别过关</div>
+                        <div class="schedule-meta">
+                            <span class="meta-tag"><i class="fas fa-passport"></i> 港澳通行证必带</span>
+                            <span class="meta-tag"><i class="fas fa-user-check"></i> 人脸识别</span>
+                        </div>
+                        <a href="https://uri.amap.com/marker?position=113.553955,22.221191&name=拱北口岸&coordinate=gaode" target="_blank" class="map-link" style="margin-top: 0.5rem;">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>导航到拱北口岸</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="schedule-item">
+                    <div class="schedule-time">全天</div>
+                    <div class="schedule-content">
+                        <div class="schedule-title">澳门半岛-氹仔游玩</div>
+                        <div class="schedule-desc">乘坐美高梅/银河酒店发财车，游览威尼斯人娱乐城</div>
+                        <div class="schedule-meta">
+                            <span class="meta-tag"><i class="fas fa-bus"></i> 发财车免费</span>
+                            <span class="meta-tag"><i class="fas fa-clock"></i> 威尼斯人1-1.5小时</span>
+                            <span class="meta-tag"><i class="fas fa-shopping-bag"></i> 购物娱乐</span>
+                        </div>
+                        <a href="https://www.xiaohongshu.com/explore/65a8f9d1000000001d03a8e2" target="_blank" class="xiaohongshu-link" style="margin-top: 0.5rem;">
+                            <i class="fab fa-redhat"></i> 澳门一日游攻略
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="day-map-container">
+                <div class="map-title"><i class="fas fa-route"></i> 今日行程地图</div>
+                <div id="map-day3" class="amap-container"></div>
+            </div>
+        </div>
+        
+        <!-- Day 4 -->
+        <div id="day4" class="day-detail-card fade-in">
+            <div class="day-header">
+                <div class="day-number">04</div>
+                <div class="day-title">香港一日游 | 初三</div>
+                <div class="day-weather">
+                    <i class="fas fa-sun weather-icon"></i>
+                    <div class="weather-temp">21°C 晴</div>
+                </div>
+            </div>
+            
+            <div class="schedule-timeline">
+                <div class="schedule-item">
+                    <div class="schedule-time">07:30</div>
+                    <div class="schedule-content">
+                        <div class="schedule-title">港珠澳大桥巴士出发</div>
+                        <div class="schedule-desc">乘坐港珠澳大桥穿梭巴士前往香港</div>
+                        <div class="schedule-meta">
+                            <span class="meta-tag"><i class="fas fa-bus"></i> 穿梭巴士</span>
+                            <span class="meta-tag"><i class="fas fa-bridge"></i> 港珠澳大桥</span>
+                        </div>
+                        <a href="https://uri.amap.com/marker?position=113.559082,22.215332&name=港珠澳大桥珠海口岸&coordinate=gaode" target="_blank" class="map-link" style="margin-top: 0.5rem;">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>导航到珠海口岸</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="schedule-item">
+                    <div class="schedule-time">上午</div>
+                    <div class="schedule-content">
+                        <div class="schedule-title">深水埗老街区</div>
+                        <div class="schedule-desc">感受老香港烟火气，品尝豆腐花</div>
+                        <div class="schedule-meta">
+                            <span class="meta-tag"><i class="fas fa-subway"></i> 地铁深水埗站</span>
+                            <span class="meta-tag"><i class="fas fa-utensils"></i> 豆腐花</span>
+                            <span class="meta-tag"><i class="fas fa-camera"></i> 老香港风情</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="schedule-item">
+                    <div class="schedule-time">下午</div>
+                    <div class="schedule-content">
+                        <div class="schedule-title">尖沙咀星光大道 + 维港</div>
+                        <div class="schedule-desc">漫步星光大道，欣赏维多利亚港美景</div>
+                        <div class="schedule-meta">
+                            <span class="meta-tag"><i class="fas fa-subway"></i> 地铁尖沙咀站</span>
+                            <span class="meta-tag"><i class="fas fa-star"></i> 星光大道</span>
+                            <span class="meta-tag"><i class="fas fa-water"></i> 维港风光</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="schedule-item">
+                    <div class="schedule-time">傍晚</div>
+                    <div class="schedule-content">
+                        <div class="schedule-title">旺角/铜锣湾购物</div>
+                        <div class="schedule-desc">香港购物天堂，记得保留发票方便退税</div>
+                        <div class="schedule-meta">
+                            <span class="meta-tag"><i class="fas fa-shopping-bag"></i> 购物</span>
+                            <span class="meta-tag"><i class="fas fa-receipt"></i> 保留发票退税</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="schedule-item">
+                    <div class="schedule-time">夜间</div>
+                    <div class="schedule-content">
+                        <div class="schedule-title">游轮夜游维港</div>
+                        <div class="schedule-desc">乘坐游轮欣赏维港璀璨夜景</div>
+                        <div class="schedule-meta">
+                            <span class="meta-tag"><i class="fas fa-ship"></i> 游轮</span>
+                            <span class="meta-tag"><i class="fas fa-city"></i> 夜景璀璨</span>
+                        </div>
+                        <a href="https://www.xiaohongshu.com/explore/65b2c8d1000000001203e9f1" target="_blank" class="xiaohongshu-link" style="margin-top: 0.5rem;">
+                            <i class="fab fa-redhat"></i> 香港一日游攻略
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="schedule-item">
+                    <div class="schedule-time">23:00前</div>
+                    <div class="schedule-content">
+                        <div class="schedule-title">返回珠海</div>
+                        <div class="schedule-desc">乘坐港珠澳大桥穿梭巴士返回珠海</div>
+                        <div class="schedule-meta">
+                            <span class="meta-tag"><i class="fas fa-exclamation-triangle"></i> 23:00前需上车</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="day-map-container">
+                <div class="map-title"><i class="fas fa-route"></i> 今日行程地图</div>
+                <div id="map-day4" class="amap-container"></div>
+            </div>
+        </div>
+        
+        <!-- Day 5 -->
+        <div id="day5" class="day-detail-card fade-in">
+            <div class="day-header">
+                <div class="day-number">05</div>
+                <div class="day-title">珠海 → 广州 | 初四</div>
+                <div class="day-weather">
+                    <i class="fas fa-cloud-sun weather-icon"></i>
+                    <div class="weather-temp">19°C 多云</div>
+                </div>
+            </div>
+            
+            <div class="schedule-timeline">
+                <div class="schedule-item">
+                    <div class="schedule-time">09:00</div>
+                    <div class="schedule-content">
+                        <div class="schedule-title">退房 - 高铁前往广州</div>
+                        <div class="schedule-desc">珠海民宿退房，乘高铁前往广州</div>
+                        <div class="schedule-meta">
+                            <span class="meta-tag"><i class="fas fa-train"></i> 高铁</span>
+                            <span class="meta-tag"><i class="fas fa-clock"></i> 约1小时</span>
+                        </div>
+                        <a href="https://uri.amap.com/marker?position=113.576726,22.271784&name=珠海站&coordinate=gaode" target="_blank" class="map-link" style="margin-top: 0.5rem;">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>导航到珠海站</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="schedule-item">
+                    <div class="schedule-time">12:00</div>
+                    <div class="schedule-content">
+                        <div class="schedule-title">抵达广州 - 民宿入住</div>
+                        <div class="schedule-desc">抵达广州，办理民宿入住</div>
+                        <div class="schedule-meta">
+                            <span class="meta-tag"><i class="fas fa-bed"></i> 2晚住宿</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="schedule-item">
+                    <div class="schedule-time">12:00-13:30</div>
+                    <div class="schedule-content">
+                        <div class="schedule-title">广式早茶</div>
+                        <div class="schedule-desc">品尝正宗广式早茶，推荐陶陶居/点都德</div>
+                        <div class="schedule-meta">
+                            <span class="meta-tag"><i class="fas fa-utensils"></i> 陶陶居/点都德</span>
+                            <span class="meta-tag"><i class="fas fa-star"></i> 必吃推荐</span>
+                        </div>
+                        <a href="https://uri.amap.com/marker?position=113.259697,23.125178&name=陶陶居(上下九店)&coordinate=gaode" target="_blank" class="map-link" style="margin-top: 0.5rem;">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>导航到陶陶居</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="schedule-item">
+                    <div class="schedule-time">13:30-17:00</div>
+                    <div class="schedule-content">
+                        <div class="schedule-title">参观陈家祠</div>
+                        <div class="schedule-desc">欣赏岭南古建筑精华，感受传统文化</div>
+                        <div class="schedule-meta">
+                            <span class="meta-tag"><i class="fas fa-subway"></i> 地铁1号线</span>
+                            <span class="meta-tag"><i class="fas fa-ticket-alt"></i> 门票提前网购</span>
+                            <span class="meta-tag"><i class="fas fa-landmark"></i> 岭南建筑</span>
+                        </div>
+                        <a href="https://uri.amap.com/marker?position=113.245117,23.127441&name=陈家祠&coordinate=gaode" target="_blank" class="map-link" style="margin-top: 0.5rem;">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>导航到陈家祠</span>
+                        </a>
+                        <a href="https://www.xiaohongshu.com/explore/65c3d8e1000000001d03b9f2" target="_blank" class="xiaohongshu-link" style="margin-left: 0.5rem;">
+                            <i class="fab fa-redhat"></i> 陈家祠攻略
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="schedule-item">
+                    <div class="schedule-time">17:00-19:00</div>
+                    <div class="schedule-content">
+                        <div class="schedule-title">逛北京路步行街</div>
+                        <div class="schedule-desc">广州最繁华商业街，可购买广州手信（鸡仔饼）</div>
+                        <div class="schedule-meta">
+                            <span class="meta-tag"><i class="fas fa-subway"></i> 地铁1号线</span>
+                            <span class="meta-tag"><i class="fas fa-shopping-bag"></i> 购物</span>
+                            <span class="meta-tag"><i class="fas fa-cookie"></i> 鸡仔饼</span>
+                        </div>
+                        <a href="https://uri.amap.com/marker?position=113.264648,23.128906&name=北京路步行街&coordinate=gaode" target="_blank" class="map-link" style="margin-top: 0.5rem;">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>导航到北京路</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="schedule-item">
+                    <div class="schedule-time">19:00-21:00</div>
+                    <div class="schedule-content">
+                        <div class="schedule-title">珠江夜游</div>
+                        <div class="schedule-desc">从天字码头出发，欣赏珠江两岸夜景</div>
+                        <div class="schedule-meta">
+                            <span class="meta-tag"><i class="fas fa-ship"></i> 游船</span>
+                            <span class="meta-tag"><i class="fas fa-ticket-alt"></i> 船票提前1天订</span>
+                            <span class="meta-tag"><i class="fas fa-city"></i> 夜景</span>
+                        </div>
+                        <a href="https://uri.amap.com/marker?position=113.271484,23.117188&name=天字码头&coordinate=gaode" target="_blank" class="map-link" style="margin-top: 0.5rem;">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>导航到天字码头</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="day-map-container">
+                <div class="map-title"><i class="fas fa-route"></i> 今日行程地图</div>
+                <div id="map-day5" class="amap-container"></div>
+            </div>
+        </div>
+        
+        <!-- Day 6 -->
+        <div id="day6" class="day-detail-card fade-in">
+            <div class="day-header">
+                <div class="day-number">06</div>
+                <div class="day-title">广州长隆 | 初五</div>
+                <div class="day-weather">
+                    <i class="fas fa-sun weather-icon"></i>
+                    <div class="weather-temp">22°C 晴</div>
+                </div>
+            </div>
+            
+            <div class="schedule-timeline">
+                <div class="schedule-item">
+                    <div class="schedule-time">白天</div>
+                    <div class="schedule-content">
+                        <div class="schedule-title">长隆野生动物世界</div>
+                        <div class="schedule-desc">亚洲最大的野生动物主题公园，亲子必游</div>
+                        <div class="schedule-meta">
+                            <span class="meta-tag"><i class="fas fa-ticket-alt"></i> 提前预订票</span>
+                            <span class="meta-tag"><i class="fas fa-paw"></i> 野生动物</span>
+                            <span class="meta-tag"><i class="fas fa-child"></i> 亲子推荐</span>
+                        </div>
+                        <a href="https://uri.amap.com/marker?position=113.329102,22.998047&name=长隆野生动物世界&coordinate=gaode" target="_blank" class="map-link" style="margin-top: 0.5rem;">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>导航到长隆动物园</span>
+                        </a>
+                        <a href="https://www.xiaohongshu.com/explore/65d4e9f1000000001203f0e3" target="_blank" class="xiaohongshu-link" style="margin-left: 0.5rem;">
+                            <i class="fab fa-redhat"></i> 长隆攻略
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="schedule-item">
+                    <div class="schedule-time">晚上</div>
+                    <div class="schedule-content">
+                        <div class="schedule-title">长隆国际大马戏</div>
+                        <div class="schedule-desc">世界级马戏表演，震撼视觉盛宴</div>
+                        <div class="schedule-meta">
+                            <span class="meta-tag"><i class="fas fa-ticket-alt"></i> 提前预订票</span>
+                            <span class="meta-tag"><i class="fas fa-theater-masks"></i> 马戏表演</span>
+                            <span class="meta-tag"><i class="fas fa-star"></i> 必看推荐</span>
+                        </div>
+                        <a href="https://uri.amap.com/marker?position=113.329590,22.995117&name=长隆国际大马戏&coordinate=gaode" target="_blank" class="map-link" style="margin-top: 0.5rem;">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>导航到长隆大马戏</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="day-map-container">
+                <div class="map-title"><i class="fas fa-route"></i> 今日行程地图</div>
+                <div id="map-day6" class="amap-container"></div>
+            </div>
+        </div>
+        
+        <!-- Day 7 -->
+        <div id="day7" class="day-detail-card fade-in">
+            <div class="day-header">
+                <div class="day-number">07</div>
+                <div class="day-title">广州 → 北京 | 初六返程</div>
+                <div class="day-weather">
+                    <i class="fas fa-cloud-sun weather-icon"></i>
+                    <div class="weather-temp">20°C 多云</div>
+                </div>
+            </div>
+            
+            <div class="schedule-timeline">
+                <div class="schedule-item">
+                    <div class="schedule-time">08:30-10:30</div>
+                    <div class="schedule-content">
+                        <div class="schedule-title">广州塔登顶</div>
+                        <div class="schedule-desc">登上450米观景台，俯瞰广州全景</div>
+                        <div class="schedule-meta">
+                            <span class="meta-tag"><i class="fas fa-subway"></i> 地铁3号线</span>
+                            <span class="meta-tag"><i class="fas fa-ticket-alt"></i> 门票提前3天网购</span>
+                            <span class="meta-tag"><i class="fas fa-binoculars"></i> 450米观景台</span>
+                        </div>
+                        <a href="https://uri.amap.com/marker?position=113.324219,23.106445&name=广州塔&coordinate=gaode" target="_blank" class="map-link" style="margin-top: 0.5rem;">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>导航到广州塔</span>
+                        </a>
+                        <a href="https://www.xiaohongshu.com/explore/65e5f0e1000000001d03c0f4" target="_blank" class="xiaohongshu-link" style="margin-left: 0.5rem;">
+                            <i class="fab fa-redhat"></i> 广州塔攻略
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="schedule-item">
+                    <div class="schedule-time">10:30-13:00</div>
+                    <div class="schedule-content">
+                        <div class="schedule-title">午餐：炳胜品味</div>
+                        <div class="schedule-desc">品尝招牌脆皮叉烧，广州塔店</div>
+                        <div class="schedule-meta">
+                            <span class="meta-tag"><i class="fas fa-utensils"></i> 脆皮叉烧</span>
+                            <span class="meta-tag"><i class="fas fa-clock"></i> 提前取号</span>
+                            <span class="meta-tag"><i class="fas fa-star"></i> 米其林推荐</span>
+                        </div>
+                        <a href="https://uri.amap.com/marker?position=113.321289,23.108398&name=炳胜品味(广州塔店)&coordinate=gaode" target="_blank" class="map-link" style="margin-top: 0.5rem;">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>导航到炳胜品味</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="schedule-item">
+                    <div class="schedule-time">13:00-16:30</div>
+                    <div class="schedule-content">
+                        <div class="schedule-title">游览沙面岛</div>
+                        <div class="schedule-desc">欣赏欧式建筑，穿舒适鞋子，适合拍照</div>
+                        <div class="schedule-meta">
+                            <span class="meta-tag"><i class="fas fa-subway"></i> 地铁1号线</span>
+                            <span class="meta-tag"><i class="fas fa-church"></i> 欧式建筑</span>
+                            <span class="meta-tag"><i class="fas fa-camera"></i> 拍照圣地</span>
+                        </div>
+                        <a href="https://uri.amap.com/marker?position=113.235352,23.108398&name=沙面岛&coordinate=gaode" target="_blank" class="map-link" style="margin-top: 0.5rem;">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>导航到沙面岛</span>
+                        </a>
+                        <a href="https://www.xiaohongshu.com/explore/65f6e1f1000000001203g1f5" target="_blank" class="xiaohongshu-link" style="margin-left: 0.5rem;">
+                            <i class="fab fa-redhat"></i> 沙面岛攻略
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="schedule-item">
+                    <div class="schedule-time">16:30-19:00</div>
+                    <div class="schedule-content">
+                        <div class="schedule-title">返程北京</div>
+                        <div class="schedule-desc">乘坐动卧返回北京，结束愉快旅程</div>
+                        <div class="schedule-meta">
+                            <span class="meta-tag"><i class="fas fa-train"></i> 动卧</span>
+                            <span class="meta-tag"><i class="fas fa-home"></i> 返程</span>
+                        </div>
+                        <a href="https://uri.amap.com/marker?position=113.256836,23.148438&name=广州站&coordinate=gaode" target="_blank" class="map-link" style="margin-top: 0.5rem;">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>导航到广州站</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="day-map-container">
+                <div class="map-title"><i class="fas fa-route"></i> 今日行程地图</div>
+                <div id="map-day7" class="amap-container"></div>
+            </div>
+        </div>
+    </section>
+    
+    <div class="constructivist-divider"></div>
+    
+    <!-- 交通信息区 -->
+    <section class="transport-section">
+        <h2 class="section-title">交通信息</h2>
+        
+        <div class="transport-card fade-in">
+            <div class="transport-route">
+                <div class="route-point">
+                    <div class="route-city">北京</div>
+                    <div class="route-detail">首都机场T3</div>
+                </div>
+                <div class="route-arrow">
+                    <i class="fas fa-plane"></i>
+                </div>
+                <div class="route-point">
+                    <div class="route-city">珠海</div>
+                    <div class="route-detail">金湾机场T1</div>
+                </div>
+            </div>
+            <div class="transport-info">
+                <div class="transport-info-item">
+                    <i class="fas fa-plane-departure"></i>
+                    <span>19:35出发</span>
+                </div>
+                <div class="transport-info-item">
+                    <i class="fas fa-plane-arrival"></i>
+                    <span>23:20到达</span>
+                </div>
+                <div class="transport-info-item">
+                    <i class="fas fa-clock"></i>
+                    <span>约3.5小时</span>
+                </div>
+                <div class="transport-info-item">
+                    <i class="fas fa-hotel"></i>
+                    <span>到达后入住汉庭</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="transport-card fade-in">
+            <div class="transport-route">
+                <div class="route-point">
+                    <div class="route-city">珠海</div>
+                    <div class="route-detail">拱北/横琴口岸</div>
+                </div>
+                <div class="route-arrow">
+                    <i class="fas fa-passport"></i>
+                </div>
+                <div class="route-point">
+                    <div class="route-city">澳门</div>
+                    <div class="route-detail">过关</div>
+                </div>
+            </div>
+            <div class="transport-info">
+                <div class="transport-info-item">
+                    <i class="fas fa-id-card"></i>
+                    <span>港澳通行证</span>
+                </div>
+                <div class="transport-info-item">
+                    <i class="fas fa-user-check"></i>
+                    <span>人脸识别</span>
+                </div>
+                <div class="transport-info-item">
+                    <i class="fas fa-bus"></i>
+                    <span>发财车免费</span>
+                </div>
+                <div class="transport-info-item">
+                    <i class="fas fa-clock"></i>
+                    <span>约30分钟</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="transport-card fade-in">
+            <div class="transport-route">
+                <div class="route-point">
+                    <div class="route-city">珠海</div>
+                    <div class="route-detail">珠海口岸</div>
+                </div>
+                <div class="route-arrow">
+                    <i class="fas fa-bridge"></i>
+                </div>
+                <div class="route-point">
+                    <div class="route-city">香港</div>
+                    <div class="route-detail">香港口岸</div>
+                </div>
+            </div>
+            <div class="transport-info">
+                <div class="transport-info-item">
+                    <i class="fas fa-bus"></i>
+                    <span>穿梭巴士</span>
+                </div>
+                <div class="transport-info-item">
+                    <i class="fas fa-clock"></i>
+                    <span>约45分钟</span>
+                </div>
+                <div class="transport-info-item">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <span>23:00前返回</span>
+                </div>
+                <div class="transport-info-item">
+                    <i class="fas fa-bridge"></i>
+                    <span>港珠澳大桥</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="transport-card fade-in">
+            <div class="transport-route">
+                <div class="route-point">
+                    <div class="route-city">珠海</div>
+                    <div class="route-detail">珠海站</div>
+                </div>
+                <div class="route-arrow">
+                    <i class="fas fa-train"></i>
+                </div>
+                <div class="route-point">
+                    <div class="route-city">广州</div>
+                    <div class="route-detail">广州南站</div>
+                </div>
+            </div>
+            <div class="transport-info">
+                <div class="transport-info-item">
+                    <i class="fas fa-train"></i>
+                    <span>高铁</span>
+                </div>
+                <div class="transport-info-item">
+                    <i class="fas fa-clock"></i>
+                    <span>约1小时</span>
+                </div>
+            </div>
+        </div>
+    <!-- 住宿与餐饮区 -->
+    <section class="accommodation-section">
+        <h2 class="section-title">住宿安排</h2>
+        
+        <div class="accommodation-card fade-in">
+            <div class="accommodation-header">
+                <div>
+                    <div class="accommodation-name">汉庭酒店（珠海金湾机场店）</div>
+                    <div class="accommodation-dates">2月15日入住 - 2月16日退房</div>
+                </div>
+                <span class="accommodation-badge">1晚</span>
+            </div>
+            <div class="accommodation-details">
+                <p><i class="fas fa-map-marker-alt"></i> 珠海金湾机场附近</p>
+                <p><i class="fas fa-clock"></i> 入住时间：23:20后（航班到达后）</p>
+                <p><i class="fas fa-plane"></i> 机场附近，方便到达后入住休息</p>
+            </div>
+        </div>
+        
+        <div class="accommodation-card fade-in">
+            <div class="accommodation-header">
+                <div>
+                    <div class="accommodation-name">珠海海边民宿</div>
+                    <div class="accommodation-dates">2月16日入住 - 2月20日退房</div>
+                </div>
+                <span class="accommodation-badge">4晚</span>
+            </div>
+            <div class="accommodation-details">
+                <p><i class="fas fa-map-marker-alt"></i> 地址待补充（11月预订）</p>
+                <p><i class="fas fa-clock"></i> 入住时间：14:00后 | 退房时间：12:00前</p>
+                <p><i class="fas fa-water"></i> 海边位置，风景优美</p>
+            </div>
+        </div>
+            </div>
+        </div>
+        
+        <div class="accommodation-card fade-in">
+            <div class="accommodation-header">
+                <div>
+                    <div class="accommodation-name">广州民宿</div>
+                    <div class="accommodation-dates">2月20日入住 - 2月22日退房</div>
+                </div>
+                <span class="accommodation-badge">2晚</span>
+            </div>
+            <div class="accommodation-details">
+                <p><i class="fas fa-map-marker-alt"></i> 地址待补充（提前预订）</p>
+                <p><i class="fas fa-clock"></i> 入住时间：14:00后 | 退房时间：12:00前</p>
+                <p><i class="fas fa-subway"></i> 建议选择地铁沿线，交通便利</p>
+            </div>
+        </div>
+        
+        <h2 class="section-title" style="margin-top: 3rem;">餐厅推荐</h2>
+        
+        <div class="restaurant-grid">
+            <div class="restaurant-card fade-in">
+                <div class="restaurant-icon">
+                    <i class="fas fa-mug-hot"></i>
+                </div>
+                <div class="restaurant-info">
+                    <div class="restaurant-name">陶陶居</div>
+                    <div class="restaurant-specialty">广式早茶 · 虾饺 · 叉烧包 · 肠粉</div>
+                    <div class="restaurant-price">人均 ¥80-120</div>
+                </div>
+            </div>
+            
+            <div class="restaurant-card fade-in">
+                <div class="restaurant-icon">
+                    <i class="fas fa-utensils"></i>
+                </div>
+                <div class="restaurant-info">
+                    <div class="restaurant-name">点都德</div>
+                    <div class="restaurant-specialty">广式早茶 · 凤爪 · 烧卖 · 流沙包</div>
+                    <div class="restaurant-price">人均 ¥60-100</div>
+                </div>
+            </div>
+            
+            <div class="restaurant-card fade-in">
+                <div class="restaurant-icon">
+                    <i class="fas fa-drumstick-bite"></i>
+                </div>
+                <div class="restaurant-info">
+                    <div class="restaurant-name">炳胜品味（广州塔店）</div>
+                    <div class="restaurant-specialty">脆皮叉烧 · 白切鸡 · 米其林推荐</div>
+                    <div class="restaurant-price">人均 ¥150-200</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <div class="constructivist-divider"></div>
+    
+    <!-- 必备清单 -->
+    <section class="checklist-section">
+        <h2 class="section-title">必备清单</h2>
+        
+        <div class="checklist-category">
+            <div class="checklist-category-title">
+                <i class="fas fa-id-card"></i> 证件类
+            </div>
+            <div class="checklist-items">
+                <div class="checklist-item" onclick="this.classList.toggle('checked')">
+                    <div class="checkbox"><i class="fas fa-check"></i></div>
+                    <span class="item-text">身份证</span>
+                </div>
+                <div class="checklist-item" onclick="this.classList.toggle('checked')">
+                    <div class="checkbox"><i class="fas fa-check"></i></div>
+                    <span class="item-text">港澳通行证（有效签注）</span>
+                </div>
+                <div class="checklist-item" onclick="this.classList.toggle('checked')">
+                    <div class="checkbox"><i class="fas fa-check"></i></div>
+                    <span class="item-text">护照（备用）</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="checklist-category">
+            <div class="checklist-category-title">
+                <i class="fas fa-tshirt"></i> 衣物类
+            </div>
+            <div class="checklist-items">
+                <div class="checklist-item" onclick="this.classList.toggle('checked')">
+                    <div class="checkbox"><i class="fas fa-check"></i></div>
+                    <span class="item-text">换洗衣物</span>
+                </div>
+                <div class="checklist-item" onclick="this.classList.toggle('checked')">
+                    <div class="checkbox"><i class="fas fa-check"></i></div>
+                    <span class="item-text">舒适运动鞋</span>
+                </div>
+                <div class="checklist-item" onclick="this.classList.toggle('checked')">
+                    <div class="checkbox"><i class="fas fa-check"></i></div>
+                    <span class="item-text">睡衣</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="checklist-category">
+            <div class="checklist-category-title">
+                <i class="fas fa-suitcase"></i> 用品类
+            </div>
+            <div class="checklist-items">
+                <div class="checklist-item" onclick="this.classList.toggle('checked')">
+                    <div class="checkbox"><i class="fas fa-check"></i></div>
+                    <span class="item-text">洗漱用品（旅行装）</span>
+                </div>
+                <div class="checklist-item" onclick="this.classList.toggle('checked')">
+                    <div class="checkbox"><i class="fas fa-check"></i></div>
+                    <span class="item-text">防晒霜 + 墨镜</span>
+                </div>
+                <div class="checklist-item" onclick="this.classList.toggle('checked')">
+                    <div class="checkbox"><i class="fas fa-check"></i></div>
+                    <span class="item-text">雨伞/一次性雨衣</span>
+                </div>
+                <div class="checklist-item" onclick="this.classList.toggle('checked')">
+                    <div class="checkbox"><i class="fas fa-check"></i></div>
+                    <span class="item-text">充电宝（≤2万毫安）</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="checklist-category">
+            <div class="checklist-category-title">
+                <i class="fas fa-mobile-alt"></i> 电子类
+            </div>
+            <div class="checklist-items">
+                <div class="checklist-item" onclick="this.classList.toggle('checked')">
+                    <div class="checkbox"><i class="fas fa-check"></i></div>
+                    <span class="item-text">手机</span>
+                </div>
+                <div class="checklist-item" onclick="this.classList.toggle('checked')">
+                    <div class="checkbox"><i class="fas fa-check"></i></div>
+                    <span class="item-text">充电器</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="checklist-category">
+            <div class="checklist-category-title">
+                <i class="fas fa-wallet"></i> 其他类
+            </div>
+            <div class="checklist-items">
+                <div class="checklist-item" onclick="this.classList.toggle('checked')">
+                    <div class="checkbox"><i class="fas fa-check"></i></div>
+                    <span class="item-text">现金（港币/澳门元）</span>
+                </div>
+                <div class="checklist-item" onclick="this.classList.toggle('checked')">
+                    <div class="checkbox"><i class="fas fa-check"></i></div>
+                    <span class="item-text">银行卡（银联）</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 重要提示 -->
+    <section class="tips-section">
+        <h2 class="section-title">重要提示</h2>
+        
+        <div class="tip-item fade-in">
+            <div class="tip-icon">
+                <i class="fas fa-money-bill-wave"></i>
+            </div>
+            <div class="tip-content">
+                <div class="tip-title">提前兑换港币</div>
+                <div class="tip-desc">建议在出发前兑换适量港币和澳门元，香港和澳门部分小店只收现金</div>
+            </div>
+        </div>
+        
+        <div class="tip-item fade-in">
+            <div class="tip-icon">
+                <i class="fas fa-wifi"></i>
+            </div>
+            <div class="tip-content">
+                <div class="tip-title">采购境外流量包</div>
+                <div class="tip-desc">提前购买港澳流量包或租借随身WiFi，确保通讯畅通</div>
+            </div>
+        </div>
+        
+        <div class="tip-item fade-in">
+            <div class="tip-icon">
+                <i class="fas fa-ticket-alt"></i>
+            </div>
+            <div class="tip-content">
+                <div class="tip-title">门票提前预订</div>
+                <div class="tip-desc">长隆海洋王国、长隆动物园、广州塔等热门景点建议提前网购门票</div>
+            </div>
+        </div>
+        
+        <div class="tip-item fade-in">
+            <div class="tip-icon">
+                <i class="fas fa-clock"></i>
+            </div>
+            <div class="tip-content">
+                <div class="tip-title">香港返程时间</div>
+                <div class="tip-desc">港珠澳大桥穿梭巴士末班车较早，务必在23:00前上车返回珠海</div>
+            </div>
+        </div>
+        
+        <div class="tip-item fade-in">
+            <div class="tip-icon">
+                <i class="fas fa-plane"></i>
+            </div>
+            <div class="tip-content">
+                <div class="tip-title">机票预订</div>
+                <div class="tip-desc">春节期间机票紧张，建议提前预订，关注航班动态，预留充足值机时间</div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 实用信息区 -->
+    <section class="practical-section">
+        <h2 class="section-title">实用信息</h2>
+        
+        <div class="practical-grid">
+            <div class="practical-card fade-in">
+                <div class="practical-title">
+                    <i class="fas fa-phone-alt"></i> 紧急联系电话
+                </div>
+                <div class="emergency-list">
+                    <div class="emergency-item">
+                        <span class="emergency-label">中国大陆报警</span>
+                        <span class="emergency-value">110</span>
+                    </div>
+                    <div class="emergency-item">
+                        <span class="emergency-label">中国大陆急救</span>
+                        <span class="emergency-value">120</span>
+                    </div>
+                    <div class="emergency-item">
+                        <span class="emergency-label">香港报警</span>
+                        <span class="emergency-value">999</span>
+                    </div>
+                    <div class="emergency-item">
+                        <span class="emergency-label">澳门报警</span>
+                        <span class="emergency-value">999</span>
+                    </div>
+                    <div class="emergency-item">
+                        <span class="emergency-label">中国领事保护</span>
+                        <span class="emergency-value">12308</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="practical-card fade-in">
+                <div class="practical-title">
+                    <i class="fas fa-info-circle"></i> 注意事项
+                </div>
+                <div class="emergency-list">
+                    <div class="emergency-item">
+                        <span class="emergency-label">港澳通行证</span>
+                        <span class="emergency-value">必带</span>
+                    </div>
+                    <div class="emergency-item">
+                        <span class="emergency-label">签注有效期</span>
+                        <span class="emergency-value">提前检查</span>
+                    </div>
+                    <div class="emergency-item">
+                        <span class="emergency-label">充电宝限制</span>
+                        <span class="emergency-value">≤2万毫安</span>
+                    </div>
+                    <div class="emergency-item">
+                        <span class="emergency-label">购物退税</span>
+                        <span class="emergency-value">保留发票</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 预算摘要 -->
+    <section class="budget-section">
+        <h2 class="section-title">预算参考</h2>
+        
+        <div class="budget-card fade-in">
+            <div class="budget-item">
+                <div class="budget-label">
+                    <i class="fas fa-plane"></i> 交通费用
+                </div>
+                <div class="budget-value">约 ¥2,500/人</div>
+            </div>
+            <div class="budget-item">
+                <div class="budget-label">
+                    <i class="fas fa-bed"></i> 住宿费用
+                </div>
+                <div class="budget-value">约 ¥3,000/人</div>
+            </div>
+            <div class="budget-item">
+                <div class="budget-label">
+                    <i class="fas fa-ticket-alt"></i> 门票费用
+                </div>
+                <div class="budget-value">约 ¥1,500/人</div>
+            </div>
+            <div class="budget-item">
+                <div class="budget-label">
+                    <i class="fas fa-utensils"></i> 餐饮费用
+                </div>
+                <div class="budget-value">约 ¥1,500/人</div>
+            </div>
+            <div class="budget-item">
+                <div class="budget-label">
+                    <i class="fas fa-shopping-bag"></i> 购物/其他
+                </div>
+                <div class="budget-value">约 ¥2,000/人</div>
+            </div>
+            <div class="budget-total">
+                <span>预计总费用</span>
+                <span class="budget-value">约 ¥10,500/人</span>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="footer-logo">春节假期 · 粤港澳之旅</div>
+        <p class="footer-text">2026年2月15日 - 2月23日 | 7天8晚 | 6人同行</p>
+        <p class="footer-text" style="margin-top: 1rem; opacity: 0.6;">
+            <i class="fas fa-palette"></i> 构成主义风格设计 | 致敬罗德琴科与利西茨基
+        </p>
+    </footer>
+    
+    <script>
+        // 滚动动画
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+        
+        // 高德地图初始化
+        function initMaps() {
+            // Day 0 地图 - 北京到珠海（飞机）
+            const map0 = new AMap.Map('map-day0', {
+                zoom: 5,
+                center: [113.376358, 30.0]
+            });
+            
+            const marker0_1 = new AMap.Marker({
+                position: [116.603039, 40.080111],
+                title: '北京首都国际机场T3',
+                label: {
+                    content: '<div style="background:#D32F2F;color:#fff;padding:2px 6px;font-size:12px;">1. 首都机场T3</div>',
+                    direction: 'top'
+                }
+            });
+            const marker0_2 = new AMap.Marker({
+                position: [113.376358, 22.006444],
+                title: '珠海金湾国际机场T1',
+                label: {
+                    content: '<div style="background:#D32F2F;color:#fff;padding:2px 6px;font-size:12px;">2. 珠海金湾机场T1</div>',
+                    direction: 'top'
+                }
+            });
+            const marker0_3 = new AMap.Marker({
+                position: [113.380000, 22.010000],
+                title: '汉庭酒店(珠海金湾机场店)',
+                label: {
+                    content: '<div style="background:#D32F2F;color:#fff;padding:2px 6px;font-size:12px;">3. 汉庭酒店</div>',
+                    direction: 'top'
+                }
+            });
+            map0.add([marker0_1, marker0_2, marker0_3]);
+            
+            const polyline0 = new AMap.Polyline({
+                path: [[116.603039, 40.080111], [113.376358, 22.006444], [113.380000, 22.010000]],
+                strokeColor: '#D32F2F',
+                strokeWeight: 3,
+                strokeStyle: 'dashed'
+            });
+            map0.add(polyline0);
+            map0.setFitView();
+            
+            // Day 1 地图 - 珠海
+            const map1 = new AMap.Map('map-day1', {
+                zoom: 13,
+                center: [113.576726, 22.271784]
+            });
+            
+            const marker1 = new AMap.Marker({
+                position: [113.576726, 22.271784],
+                title: '珠海站'
+            });
+            map1.add(marker1);
+            
+            // Day 2 地图 - 长隆海洋王国 + 珠海渔女
+            const map2 = new AMap.Map('map-day2', {
+                zoom: 12,
+                center: [113.55, 22.18]
+            });
+            
+            const markers2 = [
+                { position: [113.534653, 22.099131], title: '长隆海洋王国' },
+                { position: [113.574219, 22.264648], title: '珠海渔女' },
+                { position: [113.577881, 22.268066], title: '爱情邮局' }
+            ];
+            
+            markers2.forEach((m, i) => {
+                const marker = new AMap.Marker({
+                    position: m.position,
+                    title: m.title,
+                    label: {
+                        content: `<div style="background:#D32F2F;color:#fff;padding:2px 6px;font-size:12px;">${i+1}. ${m.title}</div>`,
+                        direction: 'top'
+                    }
+                });
+                map2.add(marker);
+            });
+            
+            const polyline2 = new AMap.Polyline({
+                path: markers2.map(m => m.position),
+                strokeColor: '#D32F2F',
+                strokeWeight: 3
+            });
+            map2.add(polyline2);
+            map2.setFitView();
+            
+            // Day 3 地图 - 澳门
+            const map3 = new AMap.Map('map-day3', {
+                zoom: 13,
+                center: [113.553955, 22.221191]
+            });
+            
+            const marker3 = new AMap.Marker({
+                position: [113.553955, 22.221191],
+                title: '拱北口岸',
+                label: {
+                    content: '<div style="background:#D32F2F;color:#fff;padding:2px 6px;font-size:12px;">拱北口岸</div>',
+                    direction: 'top'
+                }
+            });
+            map3.add(marker3);
+            
+            // Day 4 地图 - 香港
+            const map4 = new AMap.Map('map-day4', {
+                zoom: 12,
+                center: [113.559082, 22.215332]
+            });
+            
+            const marker4 = new AMap.Marker({
+                position: [113.559082, 22.215332],
+                title: '港珠澳大桥珠海口岸',
+                label: {
+                    content: '<div style="background:#D32F2F;color:#fff;padding:2px 6px;font-size:12px;">珠海口岸</div>',
+                    direction: 'top'
+                }
+            });
+            map4.add(marker4);
+            
+            // Day 5 地图 - 广州
+            const map5 = new AMap.Map('map-day5', {
+                zoom: 13,
+                center: [113.26, 23.125]
+            });
+            
+            const markers5 = [
+                { position: [113.259697, 23.125178], title: '陶陶居' },
+                { position: [113.245117, 23.127441], title: '陈家祠' },
+                { position: [113.264648, 23.128906], title: '北京路步行街' },
+                { position: [113.271484, 23.117188], title: '天字码头' }
+            ];
+            
+            markers5.forEach((m, i) => {
+                const marker = new AMap.Marker({
+                    position: m.position,
+                    title: m.title,
+                    label: {
+                        content: `<div style="background:#D32F2F;color:#fff;padding:2px 6px;font-size:12px;">${i+1}. ${m.title}</div>`,
+                        direction: 'top'
+                    }
+                });
+                map5.add(marker);
+            });
+            
+            const polyline5 = new AMap.Polyline({
+                path: markers5.map(m => m.position),
+                strokeColor: '#D32F2F',
+                strokeWeight: 3
+            });
+            map5.add(polyline5);
+            map5.setFitView();
+            
+            // Day 6 地图 - 长隆
+            const map6 = new AMap.Map('map-day6', {
+                zoom: 14,
+                center: [113.329102, 22.998047]
+            });
+            
+            const markers6 = [
+                { position: [113.329102, 22.998047], title: '长隆野生动物世界' },
+                { position: [113.329590, 22.995117], title: '长隆国际大马戏' }
+            ];
+            
+            markers6.forEach((m, i) => {
+                const marker = new AMap.Marker({
+                    position: m.position,
+                    title: m.title,
+                    label: {
+                        content: `<div style="background:#D32F2F;color:#fff;padding:2px 6px;font-size:12px;">${i+1}. ${m.title}</div>`,
+                        direction: 'top'
+                    }
+                });
+                map6.add(marker);
+            });
+            
+            const polyline6 = new AMap.Polyline({
+                path: markers6.map(m => m.position),
+                strokeColor: '#D32F2F',
+                strokeWeight: 3
+            });
+            map6.add(polyline6);
+            map6.setFitView();
+            
+            // Day 7 地图 - 广州塔、沙面岛、广州站
+            const map7 = new AMap.Map('map-day7', {
+                zoom: 12,
+                center: [113.28, 23.12]
+            });
+            
+            const markers7 = [
+                { position: [113.324219, 23.106445], title: '广州塔' },
+                { position: [113.321289, 23.108398], title: '炳胜品味' },
+                { position: [113.235352, 23.108398], title: '沙面岛' },
+                { position: [113.256836, 23.148438], title: '广州站' }
+            ];
+            
+            markers7.forEach((m, i) => {
+                const marker = new AMap.Marker({
+                    position: m.position,
+                    title: m.title,
+                    label: {
+                        content: `<div style="background:#D32F2F;color:#fff;padding:2px 6px;font-size:12px;">${i+1}. ${m.title}</div>`,
+                        direction: 'top'
+                    }
+                });
+                map7.add(marker);
+            });
+            
+            const polyline7 = new AMap.Polyline({
+                path: markers7.map(m => m.position),
+                strokeColor: '#D32F2F',
+                strokeWeight: 3
+            });
+            map7.add(polyline7);
+            map7.setFitView();
+        }
+        
+        // 页面加载完成后初始化地图
+        window.onload = function() {
+            initMaps();
+        };
+        
+        // 滚动到指定天数详情
+        function scrollToDay(dayId) {
+            const dayElement = document.getElementById(dayId);
+            if (dayElement) {
+                dayElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+    </script>
+</body>
+</html>
